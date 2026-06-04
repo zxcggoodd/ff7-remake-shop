@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js" defer></script>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Система материи — Final Fantasy VII Remake</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+
+        h2, h3 {
+            font-size: 2.2em;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="auth-block" class="auth-block"></div>
+        <a href="index.html" class="logo-container">
+            <img src="images/logo.png" class="game-logo">
+        </a>
+        <a href="index.html" class="logo-title-link">
+            <h1>Final Fantasy VII Remake</h1>
+        </a>
+        <nav class="main-nav">
+            <a href="index.html">Главная</a>
+            <a href="characters.html">Персонажи</a>
+            <a href="materia.html" class="active">Система материи</a>
+            <a href="shop.html">Каталог товаров</a>
+            <a href="profile.html">Личный кабинет</a>
+        </nav>
+    </header>
+    <main>
+        <section class="game-description" style="text-align: justify;">
+            <h2>Система Материи</h2>
+            <img src="images/materiya.jpg" alt="Изображение материи" style="margin-top: 30px; width: 100%; max-width: 800px; display: block; margin-left: auto; margin-right: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+            <p><strong>Материя</strong> — это магические сферы, внедряемые в оружие и экипировку персонажей. Она позволяет использовать заклинания, способности и усиливать характеристики. Материя делится на несколько типов: магическая, поддерживающая, призывная, командная и независимая. Каждый тип играет уникальную роль в бою и стратегии.</p>
+            <p>Сбор и правильное распределение материи между членами команды — ключ к успешному прохождению игры. Некоторые типы материи позволяют призывать мощных существ, таких как Ифрит или Багамут, другие — лечить союзников, блокировать урон или усиливать атаки. Развитие материи происходит в бою, что открывает доступ к более сильным версиям умений.</p>
+            <p>Система материи — одна из уникальных черт Final Fantasy VII, дающая игроку свободу кастомизации и тактического подхода к сражениям.</p>
+            <h3>Виды материи</h3>
+            <p><strong>Магическая (Magic)</strong> — позволяет использовать заклинания (огонь, лёд, лечение и др.).</p>
+            <p><strong>Поддерживающая (Support)</strong> — комбинируется с другими типами для создания синергии (например, "All" для массовых заклинаний).</p>
+            <p><strong>Призывная (Summon)</strong> — вызывает могущественных существ, таких как Ифрит, Шива, Багамут.</p>
+            <p><strong>Командная (Command)</strong> — добавляет боевые команды (например, "Steal", "Sense").</p>
+            <p><strong>Независимая (Independent)</strong> — пассивные улучшения (увеличение HP, защита от статуса и др.).</p>
+            <h3>Материя призыва</h3>
+            <p><strong>Александр</strong> — "Правосудие"</p>
+            <p><strong>Бахамут</strong> — "Мегавспышка"</p>
+            <p><strong>Нео-Бахамут</strong> — "Гигавспышка"</p>
+            <p><strong>Бахамут ЗЕРО</strong> — "Теравспышка"</p>
+            <p><strong>Чоко/Мог</strong> — "Смертельный удар!!" и "Толстый чокобо"</p>
+            <p><strong>Аид</strong> — "Чёрный котёл"</p>
+            <p><strong>Ифрит</strong> — "Адское пламя"</p>
+            <p><strong>Левиафан</strong> — "Приливная волна"</p>
+            <p><strong>Рыцари Круглого стола</strong> — "Абсолютный финал"</p>
+            <p><strong>Куджата</strong> — "Четыре бедствия"</p>
+            <p><strong>Один</strong> — "Стальной меч" и "Копьё Гунг"</p>
+            <p><strong>Феникс</strong> — "Пламя Феникса"</p>
+            <p><strong>Раму</strong> — "Карающая молния"</p>
+            <p><strong>Шива</strong> — "Бриллиантовая пыль"</p>
+            <p><strong>Титан</strong> — "Гнев земли"</p>
+            <p><strong>Тайфун</strong> — "Дезинтеграция"</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Final Fantasy VII Remake</p>
+    </footer>
+    <div id="authModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+
+            <h2>Вход / Регистрация</h2>
+
+            <form class="auth-form">
+
+                <input type="text"
+                       placeholder="Имя пользователя"
+                       required>
+
+                <input type="email"
+                       placeholder="Email"
+                       required>
+
+                <input type="password"
+                       placeholder="Пароль"
+                       required>
+
+                <button type="submit">
+                    Войти
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+    <footer class="site-footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-block">
+
+                <h3>О магазине</h3>
+
+                <p>
+                    Мы специализируемся на коллекционных товарах
+                    Final Fantasy VII Remake и официальном мерче.
+                </p>
+
+            </div>
+
+            <div class="footer-block">
+
+                <h3>Почему нам доверяют</h3>
+
+                <p>
+                    ✔ Качественные фигурки и мерч<br>
+                    ✔ Безопасная оплата<br>
+                    ✔ Надёжная доставка по РФ<br>
+                    ✔ Поддержка покупателей
+                </p>
+
+            </div>
+
+            <div class="footer-block">
+
+                <h3>Наша команда</h3>
+
+                <p>
+                    Над сайтом работают фанаты серии Final Fantasy,
+                    коллекционеры и дизайнеры игрового мерча.
+                </p>
+
+            </div>
+
+            <div class="footer-block">
+
+                <h3>Обратная связь</h3>
+
+                <p>
+                    VK: vk.com/finalfantasyshop<br>
+                    Email: support@ff7shop.ru
+                </p>
+
+            </div>
+
+            <div class="footer-block">
+
+                <h3>Карта сайта</h3>
+
+                <a href="index.html">Главная</a>
+                <a href="characters.html">Персонажи</a>
+                <a href="materia.html">Система материи</a>
+                <a href="shop.html">Каталог товаров</a>
+                <a href="cart.html">Корзина</a>
+                <a href="profile.html">Личный кабинет</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © Final Fantasy VII Remake Fan Shop
+        </div>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,777 @@
+﻿<!DOCTYPE html>
+<link rel="stylesheet" href="css/styles.css">
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Персонажи Final Fantasy VII Remake</title>
+</head>
+<body>
+<header>
+    <div id="auth-block" class="auth-block"></div>
+    <a href="index.html" class="logo-container">
+        <img src="images/logo.png" class="game-logo">
+    </a>
+    <a href="index.html" class="logo-title-link">
+        <h1>Final Fantasy VII Remake</h1>
+    </a>
+    <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="characters.html" class="active">Персонажи</a>
+        <a href="materia.html">Система материи</a>
+        <a href="shop.html">Каталог товаров</a>
+        <a href="profile.html">Личный кабинет</a>
+    </nav>
+</header>
+<main>
+    <section class="character-gallery">
+        <h2>Галерея персонажей Final Fantasy VII Remake/Rebirth</h2>
+        <div class="character-icons">
+            <div class="character-icon" onclick="openModal('character1')">
+                <img src="images/cloud.png" alt="Клауд Страйф">
+            </div>
+            <div class="character-icon" onclick="openModal('character2')">
+                <img src="images/aeris.png" alt="Аэрис Гейнсборо">
+            </div>
+            <div class="character-icon" onclick="openModal('character3')">
+                <img src="images/tifa.png" alt="Тифа Локхарт">
+            </div>
+            <div class="character-icon" onclick="openModal('character4')">
+                <img src="images/baret.png" alt="Баррет Уоллес">
+            </div>
+            <div class="character-icon" onclick="openModal('character5')">
+                <img src="images/bigs.png" alt="Биггс">
+            </div>
+            <div class="character-icon" onclick="openModal('character6')">
+                <img src="images/vedj.png" alt="Ведж">
+            </div>
+            <div class="character-icon" onclick="openModal('character7')">
+                <img src="images/jessi.png" alt="Джесси Расберри">
+            </div>
+            <div class="character-icon" onclick="openModal('character8')">
+                <img src="images/sefirot.png" alt="Сефирот">
+            </div>
+            <div class="character-icon" onclick="openModal('character9')">
+                <img src="images/don.png" alt="Дон Корнео">
+            </div>
+            <div class="character-icon" onclick="openModal('character10')">
+                <img src="images/coch.png" alt="Котч">
+            </div>
+            <div class="character-icon" onclick="openModal('character11')">
+                <img src="images/skoch.png" alt="Скотч">
+            </div>
+            <div class="character-icon" onclick="openModal('character12')">
+                <img src="images/shinra.png" alt="Президент Шинра">
+            </div>
+            <div class="character-icon" onclick="openModal('character13')">
+                <img src="images/rufus.png" alt="Руфус Шинра">
+            </div>
+            <div class="character-icon" onclick="openModal('character14')">
+                <img src="images/hideger.png" alt="Хайдеггер">
+            </div>
+            <div class="character-icon" onclick="openModal('character15')">
+                <img src="images/skarlet.png" alt="Скарлет">
+            </div>
+            <div class="character-icon" onclick="openModal('character16')">
+                <img src="images/palmer.png" alt="Палмер">
+            </div>
+            <div class="character-icon" onclick="openModal('character17')">
+                <img src="images/riv.png" alt="Рив Туэсти">
+            </div>
+            <div class="character-icon" onclick="openModal('character18')">
+                <img src="images/roshe.png" alt="Роше">
+            </div>
+            <div class="character-icon" onclick="openModal('character19')">
+                <img src="images/reno.png" alt="Рено">
+            </div>
+            <div class="character-icon" onclick="openModal('character20')">
+                <img src="images/rud.png" alt="Руд">
+            </div>
+            <div class="character-icon" onclick="openModal('character21')">
+                <img src="images/ceng.png" alt="Ценг">
+            </div>
+            <div class="character-icon" onclick="openModal('character22')">
+                <img src="images/mir.png" alt="Мэр Домино">
+            </div>
+            <div class="character-icon" onclick="openModal('character23')">
+                <img src="images/andrea.png" alt="Андреа Родеа">
+            </div>
+            <div class="character-icon" onclick="openModal('character24')">
+                <img src="images/chokobo.png" alt="Чокобо Сэм">
+            </div>
+            <div class="character-icon" onclick="openModal('character25')">
+                <img src="images/madam.png" alt="Мадам М">
+            </div>
+            <div class="character-icon" onclick="openModal('character26')">
+                <img src="images/kiri.png" alt="Кирие Канаан">
+            </div>
+            <div class="character-icon" onclick="openModal('character27')">
+                <img src="images/lesli.png" alt="Лесли Кайл">
+            </div>
+            <div class="character-icon" onclick="openModal('character28')">
+                <img src="images/jonny.png" alt="Джонни">
+            </div>
+            <div class="character-icon" onclick="openModal('character29')">
+                <img src="images/red.png" alt="Ред XIII">
+            </div>
+            <div class="character-icon" onclick="openModal('character30')">
+                <img src="images/buh.png" alt="Бугенхаген">
+            </div>
+            <div class="character-icon" onclick="openModal('character31')">
+                <img src="images/dayn.png" alt="Дайн">
+            </div>
+            <div class="character-icon" onclick="openModal('character32')">
+                <img src="images/vincent.png" alt="Винсент Валентайн">
+            </div>
+            <div class="character-icon" onclick="openModal('character33')">
+                <img src="images/dio.png" alt="Дио">
+            </div>
+            <div class="character-icon" onclick="openModal('character34')">
+                <img src="images/sid.png" alt="Сид Хайвинд">
+            </div>
+            <div class="character-icon" onclick="openModal('character35')">
+                <img src="images/elena.png" alt="Елена">
+            </div>
+            <div class="character-icon" onclick="openModal('character36')">
+                <img src="images/zangan.png" alt="Занган">
+            </div>
+            <div class="character-icon" onclick="openModal('character37')">
+                <img src="images/zak.png" alt="Зак Фэйр">
+            </div>
+            <div class="character-icon" onclick="openModal('character38')">
+                <img src="images/ifalna.png" alt="Ифална">
+            </div>
+            <div class="character-icon" onclick="openModal('character39')">
+                <img src="images/cis.png" alt="Циссни">
+            </div>
+            <div class="character-icon" onclick="openModal('character40')">
+                <img src="images/claudia.png" alt="Клаудия Страйф">
+            </div>
+            <div class="character-icon" onclick="openModal('character41')">
+                <img src="images/marlin.png" alt="Марлин Уоллес">
+            </div>
+            <div class="character-icon" onclick="openModal('character42')">
+                <img src="images/yuffi.png" alt="Юффи Кисараги">
+            </div>
+            <div class="character-icon" onclick="openModal('character43')">
+                <img src="images/cat.png" alt="Кат Ши">
+            </div>
+            <div class="character-icon" onclick="openModal('character44')">
+                <img src="images/chel.png" alt="Чокобо">
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальные окна для каждого персонажа -->
+    <div id="character1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character1')">&times;</span>
+            <h2>Клауд Страйф</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Клауд — главный герой Final Fantasy VII. Бывший солдат из элитного подразделения SOLDIER, он начинает свою историю как наёмник, нанятый организацией AVALANCHE для подрыва реакторов Шинры.</p>
+            <img src="images/cloud.png" alt="Клауд Страйф">
+
+            <p>Собирая бомбу, которую ЛАВИНА собирается использовать для разрушения реактора Сектора 1, Джесси узнает код, чтобы открыть двери и опустить лифт для Баррета и Клауда. После установки бомбы они покидают реактор, и Клауд помогает Джесси, нога которой застряла. Взрыв оказывается сильнее ожидаемого — Джесси думает, что это её ошибка, не зная, что "Шинра" активировала систему самоуничтожения.</p>
+
+            <p>После миссии ЛАВИНА отправляется в трущобы Сектора 7. Во время поездки Джесси показывает Клауду 3D-модель Мидгара и рассказывает о своей любви к технологиям. Она смотрит выпуск новостей, винит себя в разрушениях и решает сделать следующую бомбу менее мощной.</p>
+
+            <p>Позже Джесси нанимает Клауда, чтобы он помог ей проникнуть в дом родителей, где она крадёт ID-карту отца. Вместе с Биггсом и Веджем они едут на мотоциклах и отбиваются от нападения СОЛДАТов. В ходе миссии раскрываются подробности о прошлом Джесси: она была актрисой, но оставила мечту после трагедии с отцом.</p>
+
+            <p>После успешного похищения взрывчатки команда прыгает с парашютами в Сектор 7. Джесси благодарит Клауда, отдаёт ему Материю и намекает на симпатию. Позже она получает ранение во время нападения призраков и пропускает следующую миссию. Несмотря на боль, она старается поддерживать боевой дух команды.</p>
+
+            <p>Во время штурма опоры Сектора 7 Джесси оказывается под обломками. В своём последнем разговоре с Клаудом и Тифой она просит не винить себя и принимает свою судьбу.</p>
+        </div>
+    </div>
+
+
+    <div id="character2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character2')">&times;</span>
+            <h2>Аэрис Гейнсборо</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p>
+                <strong>Описание:</strong> Аэрис (также известная как Айрис) Гейнсборо — один из ключевых персонажей *Final Fantasy VII Remake*, последняя представительница древней расы Цетра (Сетра), обладающая способностью слышать голос Планеты. Она играет важную роль в сюжете, связанном с противостоянием корпорации «Шинра» и охотой на Сефирота.
+
+                - Имя: В оригинальном японском — «エアリス» (Эарису), в английских версиях — *Aerith* (начиная с *Kingdom Hearts*), но в русском фэндоме чаще используется «Аэрис».
+                - Возраст: 22 года (на момент событий *FFVII Remake*).
+                - Род занятий: Цветочница в трущобах Мидгара, позже — участница сопротивления «ЛАВИНА».
+
+                ---
+
+                #### 2. Внешность
+                В *Remake* дизайн Аэрис детализирован, сохраняя ключевые элементы оригинала:
+                - Одежда: Длинное розовое платье, красное болеро с металлической отделкой, коричневые ботинки. Волосы заплетены в косу с розовой лентой, скрывающей Белую Материю — подарок матери.
+                - Аксессуары: Подвеска с цветком и жемчужиной на кожаном шнурке (новый элемент в *Remake*).
+                - Изменения в разных сценах:
+                - В сцене на рынке у Стены — красное платье на бретелях, распущенные волнистые волосы.
+                - В воспоминаниях о детстве — синий джинсовый сарафан и голубая лента.
+
+                ---
+
+                #### 3. Характер и личность
+                Аэрис сочетает в себе оптимизм, независимость и духовную глубину:
+                - Беззаботность и юмор: Часто шутит, флиртует с Клаудом, но за этим скрывает одиночество из-за своей уникальности.
+                - Сила духа: Выросла в трущобах, умеет постоять за себя. Несмотря на преследования «Шинры», сохраняет надежду.
+                - Эмпатия: Проявляет сочувствие даже к врагам (например, к Ценгу). В *Remake* её роль в сюжете расширена — она активнее взаимодействует с другими персонажами, особенно с Тифой.
+                - Связь с Планетой: Слышит «голос ветра» (общение с Планетой), что иногда делает её поведение загадочным.
+
+                ---
+
+                #### 4. Роль в сюжете *FFVII Remake*
+                - Первая встреча с Клаудом: Аэрис продаёт ему цветок, символизирующий «воссоединение». Их знакомство запускает цепь событий, ведущих к противостоянию с «Шинрой».
+                - Похищение «Шинрой»: Корпорация хочет использовать её способности для поиска «Земли Обетованной». Клауд и группа спасают её.
+                - Участие в «ЛАВИНЕ»: Помогает группе, несмотря на изначальное нежелание Клауда ввязываться в конфликт.
+                - Особенности в *Remake*:
+                - Её диалоги с Клаудом более детализированы, включая намёки на будущие события (например, её знание о «Стражах Судьбы»).
+                - В *Remake* подчёркивается её манипулятивность — она умело играет на слабостях других, но с добрыми намерениями.
+
+                ---
+
+                #### 5. Боевые способности
+                В бою Аэрис — магический специалист с акцентом на поддержку:
+                - Оружие: Посохи, усиливающие магические атаки.
+                - Лимит-брейки:
+                - «Исцеляющий ветер» (*Healing Wind*) — восстанавливает HP партии.
+                - «Чудотворный ветер» (*Planet’s Protection*) — накладывает защитные эффекты.
+                - Стиль боя:
+                - Использует магию Материи (например, исцеление или стихийные атаки).
+                - В *Remake* её атаки сочетают грацию с мощью, включая ауры, усиливающие союзников.
+
+                ---
+
+                #### 6. Культурное влияние и наследие
+                - Смерть в оригинале: Её гибель от руки Сефирота — одна из самых известных сцен в истории игр. В *Remake* её судьба остаётся открытой из-за изменений в сюжете.
+                - Озвучивание:
+                - В японской версии — Маая Сакамото (как в *Advent Children*), в английской — Бриана Уайт (новый голос для *Remake*).
+                - Фан-реакции: Персонаж стал символом стойкости и жертвенности, а её отношения с Клаудом и Тифой остаются темой споров среди фанатов.
+            </p>
+            <img src="images/aeris.png" alt="Аэрис Гейнсборо">
+        </div>
+    </div>
+
+    <div id="character3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character3')">&times;</span>
+            <h2>Тифа Локхарт</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Тифа — подруга детства Клауда и одна из участниц AVALANCHE. Её внешняя мягкость скрывает силу и решимость. Она владеет боевыми искусствами и является надёжной союзницей в бою. Тифа — эмоционально глубоко чувствующий человек, она часто берёт на себя роль морального центра команды. Её дружба с Клаудом играет важную роль в развитии его характера. Внутренний конфликт Тифы заключается в её сомнениях относительно прошлого Клауда и в попытке помочь ему обрести истинное «я».</p>
+            <img src="images/tifa.png" alt="Тифа Локхарт">
+        </div>
+    </div>
+
+    <div id="character4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character4')">&times;</span>
+            <h2>Баррет Уоллес</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Баррет — лидер ячейки AVALANCHE, решительно настроенной на борьбу с корпорацией Шинра. Он потерял родной город из-за разрушений, вызванных деятельностью Шинры, и теперь ведёт борьбу за свободу Планеты. Несмотря на суровый и агрессивный внешний вид, Баррет — заботливый отец и человек с глубокой верой в справедливость. Его оружие — пулемёт, встроенный в руку, символизирует его решимость и силу. Его путь — это путь искупления, от мести к пониманию, как можно по-настоящему изменить мир.</p>
+            <img src="images/baret.png" alt="Баррет Уоллес">
+        </div>
+    </div>
+
+    <div id="character5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character5')">&times;</span>
+            <h2>Биггс</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Тактичный и спокойный член AVALANCHE, помогает планировать операции и поддерживает команду.</p>
+            <img src="images/bigs.png" alt="Биггс">
+        </div>
+    </div>
+
+    <div id="character6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character6')">&times;</span>
+            <h2>Ведж</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Добродушный и немного неуклюжий боец AVALANCHE. Отличается верностью и дружелюбием.</p>
+            <img src="images/vedj.png" alt="Ведж">
+        </div>
+    </div>
+
+    <div id="character7" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character7')">&times;</span>
+            <h2>Джесси Расберри</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Техник AVALANCHE, разрабатывает взрывчатку и снаряжение. Питает симпатию к Клауду.</p>
+            <img src="images/jessi.png" alt="Джесси Расберри">
+        </div>
+    </div>
+
+    <div id="character8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character8')">&times;</span>
+            <h2>Сефирот</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Легендарный воин, ставший антагонистом. Стремится к слиянию с Планетой и разрушению мира.</p>
+            <img src="images/sefirot.png" alt="Сефирот">
+        </div>
+    </div>
+
+    <div id="character9" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character9')">&times;</span>
+            <h2>Дон Корнео</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Коррумпированный мафиози из Вальной зоны. Знаменит своими эксцентричными 'конкурсами невест'.</p>
+            <img src="images/don.png" alt="Дон Корнео">
+        </div>
+    </div>
+
+    <div id="character10" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character10')">&times;</span>
+            <h2>Котч</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Один из помощников Дон Корнео. Часто работает вместе со своим братом Скотчем.</p>
+            <img src="images/coch.png" alt="Котч">
+        </div>
+    </div>
+
+    <div id="character11" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character11')">&times;</span>
+            <h2>Скотч</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Брат Котча, помощник Дон Корнео. Часто участвует в боях на арене.</p>
+            <img src="images/skoch.png" alt="Скотч">
+        </div>
+    </div>
+
+    <div id="character12" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character12')">&times;</span>
+            <h2>Президент Шинра</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Глава корпорации Шинра. Стремится к тотальному контролю над энергией планеты.</p>
+            <img src="images/shinra.png" alt="Президент Шинра">
+        </div>
+    </div>
+
+    <div id="character13" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character13')">&times;</span>
+            <h2>Руфус Шинра</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Сын президента и его преемник. Более жестокий и решительный в управлении Шинрой.</p>
+            <img src="images/rufus.png" alt="Руфус Шинра">
+        </div>
+    </div>
+
+    <div id="character14" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character14')">&times;</span>
+            <h2>Хайдеггер</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Руководитель безопасности Шинры. Агрессивен и безжалостен, слепо служит корпорации.</p>
+            <img src="images/hideger.png" alt="Хайдеггер">
+        </div>
+    </div>
+
+    <div id="character15" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character15')">&times;</span>
+            <h2>Скарлет</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Глава отдела вооружений Шинры. Умна, амбициозна, ответственна за создание оружия массового поражения.</p>
+            <img src="images/skarlet.png" alt="Скарлет">
+        </div>
+    </div>
+
+    <div id="character16" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character16')">&times;</span>
+            <h2>Палмер</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Глава отдела космических исследований. Комично абсурден и почти неэффективен.</p>
+            <img src="images/palmer.png" alt="Палмер">
+        </div>
+    </div>
+
+    <div id="character17" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character17')">&times;</span>
+            <h2>Рив Туэсти</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Инженер в Шинре, демонстрирует сочувствие к простым жителям. Позже играет важную роль в WRO.</p>
+            <img src="images/riv.png" alt="Рив Туэсти">
+        </div>
+    </div>
+
+    <div id="character18" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character18')">&times;</span>
+            <h2>Роше</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Неуравновешенный и харизматичный байкер, бывший SOLDIER. Ищет достойного противника в Клауде.</p>
+            <img src="images/roshe.png" alt="Роше">
+        </div>
+    </div>
+
+    <div id="character19" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character19')">&times;</span>
+            <h2>Рено</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Член организации Турки. Циничный и дерзкий, но не лишён собственного морального кодекса.</p>
+            <img src="images/reno.png" alt="Рено">
+        </div>
+    </div>
+
+    <div id="character20" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character20')">&times;</span>
+            <h2>Руд</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Партнёр Рено в Турках. Молчаливый, дисциплинированный, предан своим товарищам.</p>
+            <img src="images/rud.png" alt="Руд">
+        </div>
+    </div>
+
+    <div id="character21" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character21')">&times;</span>
+            <h2>Ценг</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Лидер Турков. Расчётливый и хладнокровный, но проявляет сочувствие к Аэрис.</p>
+            <img src="images/ceng.png" alt="Ценг">
+        </div>
+    </div>
+
+    <div id="character22" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character22')">&times;</span>
+            <h2>Мэр Домино</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Официальный глава Мидгара. На деле — просто формальность, поддерживает сопротивление.</p>
+            <img src="images/mir.png" alt="Мэр Домино">
+        </div>
+    </div>
+
+    <div id="character23" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character23')">&times;</span>
+            <h2>Андреа Родеа</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Хозяин Колизея и ночного клуба. Харизматичен и благороден, помогает Клауду и друзьям.</p>
+            <img src="images/andrea.png" alt="Андреа Родеа">
+        </div>
+    </div>
+
+    <div id="character24" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character24')">&times;</span>
+            <h2>Чокобо Сэм</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Один из влиятельных людей Вальной зоны. Участвует в выборе, кто встретится с Дон Корнео.</p>
+            <img src="images/chokobo.png" alt="Чокобо Сэм">
+        </div>
+    </div>
+
+    <div id="character25" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character25')">&times;</span>
+            <h2>Мадам М</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Элегантная владелица салона массажа. Влиятельная фигура Вальной зоны.</p>
+            <img src="images/madam.png" alt="Мадам М">
+        </div>
+    </div>
+
+    <div id="character26" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character26')">&times;</span>
+            <h2>Кирие Канаан</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Местная аферистка и рассказчица. Помогает AVALANCHE неохотно.</p>
+            <img src="images/kiri.png" alt="Кирие Канаан">
+        </div>
+    </div>
+
+    <div id="character27" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character27')">&times;</span>
+            <h2>Лесли Кайл</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Правая рука Дон Корнео. Имеет личные мотивы и помогает героям позже.</p>
+            <img src="images/lesli.png" alt="Лесли Кайл">
+        </div>
+    </div>
+
+    <div id="character28" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character28')">&times;</span>
+            <h2>Джонни</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Безрассудный, но добрый парень. Часто попадает в неприятности и снова появляется в Rebirth.</p>
+            <img src="images/jonny.png" alt="Джонни">
+        </div>
+    </div>
+
+    <div id="character29" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character29')">&times;</span>
+            <h2>Ред XIII</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Разумное существо с внешностью зверя. Мудрый и сильный, борется за Планету.</p>
+            <img src="images/red.png" alt="Ред XIII">
+        </div>
+    </div>
+
+    <div id="character30" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character30')">&times;</span>
+            <h2>Бугенхаген</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Старейшина Космо-Каньона, учёный и наставник. Рассказывает о жизненной энергии Планеты.</p>
+            <img src="images/buh.png" alt="Бугенхаген">
+        </div>
+    </div>
+
+    <div id="character31" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character31')">&times;</span>
+            <h2>Дайн</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Бывший друг Баррета. Трагическая фигура, потерявший семью и рассудок.</p>
+            <img src="images/dayn.png" alt="Дайн">
+        </div>
+    </div>
+
+    <div id="character32" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character32')">&times;</span>
+            <h2>Винсент Валентайн</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Бывший Турк, претерпевший мутации. Мрачный, скрытный, ищет искупления.</p>
+            <img src="images/vincent.png" alt="Винсент Валентайн">
+        </div>
+    </div>
+
+    <div id="character33" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character33')">&times;</span>
+            <h2>Дио</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Экстравагантный владелец Золотого блюдца. Обожает шоу и соревнования.</p>
+            <img src="images/dio.png" alt="Дио">
+        </div>
+    </div>
+
+    <div id="character34" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character34')">&times;</span>
+            <h2>Сид Хайвинд</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Пилот и мечтатель о звёздах. Грубоват, но добросердечен.</p>
+            <img src="images/sid.png" alt="Сид Хайвинд">
+        </div>
+    </div>
+
+    <div id="character35" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character35')">&times;</span>
+            <h2>Елена</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Новобранец Турков. Старается доказать свою ценность, порой чрезмерно рвётся в бой.</p>
+            <img src="images/elena.png" alt="Елена">
+        </div>
+    </div>
+
+    <div id="character36" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character36')">&times;</span>
+            <h2>Занган</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Мастер боевых искусств, учитель Тифы. Следит за её судьбой из тени.</p>
+            <img src="images/zangan.png" alt="Занган">
+        </div>
+    </div>
+
+    <div id="character37" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character37')">&times;</span>
+            <h2>Зак Фэйр</h2>
+            <p><strong>Часть:</strong> Remake, Rebirth</p>
+            <p><strong>Описание:</strong> Жизнерадостный SOLDIER 1-го класса. Имел отношения с Аэрис и повлиял на судьбу Клауда.</p>
+            <img src="images/zak.png" alt="Зак Фэйр">
+        </div>
+    </div>
+
+    <div id="character38" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character38')">&times;</span>
+            <h2>Ифална</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Мать Аэрис. Последняя из Цетра, хранившая знания о Планете.</p>
+            <img src="images/ifalna.png" alt="Ифална">
+        </div>
+    </div>
+
+    <div id="character39" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character39')">&times;</span>
+            <h2>Циссни</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Турк, проявляющая сострадание. Ранее известна по Crisis Core.</p>
+            <img src="images/cis.png" alt="Циссни">
+        </div>
+    </div>
+
+    <div id="character40" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character40')">&times;</span>
+            <h2>Клаудия Страйф</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Мать Клауда. Простая женщина из деревни Нибельхейм.</p>
+            <img src="images/claudia.png" alt="Клаудия Страйф">
+        </div>
+    </div>
+
+    <div id="character41" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character41')">&times;</span>
+            <h2>Марлин Уоллес</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Приёмная дочь Баррета. Символ надежды и невинности.</p>
+            <img src="images/marlin.png" alt="Марлин Уоллес">
+        </div>
+    </div>
+
+    <div id="character42" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character42')">&times;</span>
+            <h2>Юффи Кисараги</h2>
+            <p><strong>Часть:</strong> Intermission, Rebirth</p>
+            <p><strong>Описание:</strong> Ниндзя из Вутай. Азартная, быстрая, мечтает прославить свою страну.</p>
+            <img src="images/yuffi.png" alt="Юффи Кисараги">
+        </div>
+    </div>
+
+    <div id="character43" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character43')">&times;</span>
+            <h2>Кат Ши</h2>
+            <p><strong>Часть:</strong> Rebirth</p>
+            <p><strong>Описание:</strong> Кукольный кот, управляемый удалённо. Представляет Рива, играет важную роль в сюжете.</p>
+            <img src="images/cat.png" alt="Кат Ши">
+        </div>
+    </div>
+
+    <div id="character44" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('character44')">&times;</span>
+            <h2>Чокобо</h2>
+            <p><strong>Часть:</strong> Remake</p>
+            <p><strong>Описание:</strong> Птицеподобные существа, используемые для передвижения. Часто появляются в побочных миссиях.</p>
+            <img src="images/chel.png" alt="Чокобо">
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; Final Fantasy VII Remake</p>
+</footer>
+<script src="js/script.js"></script>
+<div id="authModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeAuthModal()">&times;</span>
+
+        <h2>Вход / Регистрация</h2>
+
+        <form class="auth-form">
+
+            <input type="text"
+                   placeholder="Имя пользователя"
+                   required>
+
+            <input type="email"
+                   placeholder="Email"
+                   required>
+
+            <input type="password"
+                   placeholder="Пароль"
+                   required>
+
+            <button type="submit">
+                Войти
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<footer class="site-footer">
+
+    <div class="footer-grid">
+
+        <div class="footer-block">
+
+            <h3>О магазине</h3>
+
+            <p>
+                Мы специализируемся на коллекционных товарах
+                Final Fantasy VII Remake и официальном мерче.
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Почему нам доверяют</h3>
+
+            <p>
+                ✔ Качественные фигурки и мерч<br>
+                ✔ Безопасная оплата<br>
+                ✔ Надёжная доставка по РФ<br>
+                ✔ Поддержка покупателей
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Наша команда</h3>
+
+            <p>
+                Над сайтом работают фанаты серии Final Fantasy,
+                коллекционеры и дизайнеры игрового мерча.
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Обратная связь</h3>
+
+            <p>
+                VK: vk.com/finalfantasyshop<br>
+                Email: support@ff7shop.ru
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Карта сайта</h3>
+
+            <a href="index.html">Главная</a>
+            <a href="characters.html">Персонажи</a>
+            <a href="materia.html">Система материи</a>
+            <a href="shop.html">Каталог товаров</a>
+            <a href="cart.html">Корзина</a>
+            <a href="profile.html">Личный кабинет</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © Final Fantasy VII Remake Fan Shop
+    </div>
+
+</footer>
+</body>
+</html>
