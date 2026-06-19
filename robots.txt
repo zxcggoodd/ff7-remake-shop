@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zxcggoodd.github.io/ff7-remake-shop/sitemap.xml
