@@ -1,54 +1,35 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="css/styles.css">
-<script src="js/script.js" defer></script>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-
     <title>Final Fantasy VII Remake — О игре</title>
-
     <meta name="description"
           content="Фанатский сайт Final Fantasy VII Remake. Персонажи, система Materia, коллекционные фигурки, мерч и каталог товаров.">
     <meta name="google-site-verification" content="RDRQlD1tuNP9FAj60qUyNcmW9aiWKIn28R03UBZxhdE" />
     <meta name="keywords"
           content="Final Fantasy VII Remake, FF7, Cloud Strife, Sephiroth, Materia, фигурки, магазин, Square Enix">
-
-    <meta name="author"
-          content="Полина">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Полина">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Open Graph -->
-    <meta property="og:title"
-          content="Final Fantasy VII Remake Fan Shop">
-
+    <meta property="og:title" content="Final Fantasy VII Remake Fan Shop">
     <meta property="og:description"
           content="Фанатский сайт и магазин коллекционных товаров по Final Fantasy VII Remake">
-
     <meta property="og:image"
           content="https://zxcggoodd.github.io/ff7-remake-shop/images/logo.png">
-
     <meta property="og:url"
           content="https://zxcggoodd.github.io/ff7-remake-shop/">
+    <meta property="og:type" content="website">
 
-    <meta property="og:type"
-          content="website">
-
-    <link rel="icon"
-          href="images/logo.png">
-
-    <link rel="stylesheet"
-          href="css/styles.css">
-
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
-
 </head>
 <body>
     <header>
         <div id="auth-block" style="position:absolute; top:20px; right:30px;"></div>
         <a href="index.html" class="logo-container">
-            <img src="images/logo.png" class="game-logo">
+            <img src="images/logo.png" class="game-logo" alt="Логотип Final Fantasy VII Remake">
         </a>
         <a href="index.html" class="logo-title-link">
             <h1>Final Fantasy VII Remake</h1>
@@ -61,186 +42,179 @@
             <a href="profile.html">Личный кабинет</a>
         </nav>
     </header>
+
     <main>
-       
-            <section class="gameplay-gallery">
-
-                <h2>Геймплей игры</h2>
-
-                <div class="gameplay-scroll">
-
-                    <img src="images/game/1.jpg" onclick="openGameplay(this.src)">
-                    <img src="images/game/2.jpg" onclick="openGameplay(this.src)">
-                    <img src="images/game/3.jpg" onclick="openGameplay(this.src)">
-                    <img src="images/game/4.jpg" onclick="openGameplay(this.src)">
-                    <img src="images/game/5.jpg" onclick="openGameplay(this.src)">
-                    <img src="images/game/6.jpg" class="slide">
-                    <img src="images/game/7.jpg" class="slide">
-
-                </div>
-
-            </section>
-
-            <!-- FULLSCREEN -->
-            <div id="gameplayModal" class="gameplay-modal">
-
-                <span class="gameplay-close" onclick="closeGameplay()">&times;</span>
-
-                <img id="gameplayFull">
-
+        <section class="gameplay-gallery">
+            <h2>Геймплей игры</h2>
+            <div class="gameplay-scroll">
+                <img src="images/game/1.jpg" alt="Геймплей 1" onclick="openGameplay(this.src)">
+                <img src="images/game/2.jpg" alt="Геймплей 2" onclick="openGameplay(this.src)">
+                <img src="images/game/3.jpg" alt="Геймплей 3" onclick="openGameplay(this.src)">
+                <img src="images/game/4.jpg" alt="Геймплей 4" onclick="openGameplay(this.src)">
+                <img src="images/game/5.jpg" alt="Геймплей 5" onclick="openGameplay(this.src)">
+                <img src="images/game/6.jpg" class="slide" alt="Геймплей 6">
+                <img src="images/game/7.jpg" class="slide" alt="Геймплей 7">
             </div>
+        </section>
+
+        <!-- FULLSCREEN MODAL -->
+        <div id="gameplayModal" class="gameplay-modal">
+            <span class="gameplay-close" onclick="closeGameplay()">&times;</span>
+            <img id="gameplayFull" alt="Полноэкранный геймплей">
+        </div>
+
         <section class="game-description">
             <h2>О игре</h2>
             <p>
                 Final Fantasy VII Remake — это современное переосмысление культовой японской ролевой игры, впервые вышедшей в 1997 году. Ремейк разработан студией Square Enix на новом движке с потрясающей графикой, кинематографическими кат-сценами и обновлённой системой боя, сочетающей в себе элементы экшена и классического JRPG.
-
                 Действие игры разворачивается в огромном индустриальном мегаполисе Мидгаре, где могущественная корпорация «Шинра» добывает жизненную энергию планеты, нанося ей непоправимый вред. Игрок берёт на себя роль Клауда Страйфа — бывшего бойца элитного подразделения SOLDIER, который становится наёмником и присоединяется к подпольной организации AVALANCHE, борющейся за спасение мира.
-
                 FFVII Remake — не просто пересказ оригинальной истории, а глубокое расширение и переосмысление сюжета, с новыми деталями о героях, врагах и самом мире игры. Благодаря обновлённой боевой системе, улучшенной музыке и проработанным диалогам, игроки погружаются в знакомый, но совершенно новый мир Final Fantasy VII.
             </p>
         </section>
+
         <section class="game-plot">
             <h2>Сюжет</h2>
             <p>
                 Сюжет Final Fantasy VII Remake начинается с диверсии на реакторе Мидгара, организованной группой AVALANCHE при поддержке Клауда Страйфа. Их цель — разрушить оборудование корпорации «Шинра», чтобы остановить истощение ресурсов планеты. Однако действия героев приводят к непредвиденным последствиям и запускают цепь событий, меняющих жизни всех участников.
-
                 Постепенно раскрывается сложная история каждого персонажа: от храброй и загадочной цветочницы Аэрис до решительной и сильной Тифы, лидера борцов за свободу Баррета и других союзников. Герои сталкиваются с могущественными врагами, среди которых выделяется легендарный Сефирот, угрожающий самому существованию планеты.
-
-                На пути к истине команда сталкивается с тяжелыми испытаниями, раскрывает секреты прошлого, борется с личными страхами и сомнениями. Сюжет ремейка глубже раскрывает отношения между героями и предлагает новые интерпретации ключевых событий, сохраняя дух оригинала и добавляя современную драму и эмоциональную глубину..
+                На пути к истине команда сталкивается с тяжелыми испытаниями, раскрывает секреты прошлого, борется с личными страхами и сомнениями. Сюжет ремейка глубже раскрывает отношения между героями и предлагает новые интерпретации ключевых событий, сохраняя дух оригинала и добавляя современную драму и эмоциональную глубину.
             </p>
         </section>
+
         <section class="shop-preview">
             <h2>Магазин</h2>
-
             <div class="shop-grid">
                 <div class="shop-item" onclick="openShopModal('figura1')">
-                    <img src="images/shop/fig1.jpg">
+                    <img src="images/shop/fig1.jpg" alt="Фигурка SOLDIER">
                     <p>Фигурка SOLDIER</p>
                     <p class="price">15 000 rub</p>
                 </div>
-
                 <div class="shop-item" onclick="openShopModal('figura2')">
-                    <img src="images/shop/asd1.jpg">
+                    <img src="images/shop/asd1.jpg" alt="Фигурка AVALANCHE">
                     <p>Фигурка AVALANCHE</p>
                     <p class="price">14 500 rub</p>
                 </div>
-
                 <div class="shop-item" onclick="openShopModal('figura3')">
-                    <img src="images/shop/vinc1.jpg">
+                    <img src="images/shop/vinc1.jpg" alt="Фигурка Vincent">
                     <p>Фигурка Vincent</p>
                     <p class="price">16 000 rub</p>
                 </div>
             </div>
-
             <div class="shop-button-container">
                 <a href="shop.html" class="shop-button">Перейти в каталог</a>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; Final Fantasy VII Remake</p>
-    </footer>
+
     <div id="authModal" class="modal">
-
         <div class="modal-content">
-
             <span class="close" onclick="closeAuthModal()">&times;</span>
-
             <h2>Вход / Регистрация</h2>
-
             <form class="auth-form">
-
-                <input type="text"
-                       placeholder="Имя пользователя"
-                       required>
-
-                <input type="email"
-                       placeholder="Email"
-                       required>
-
-                <input type="password"
-                       placeholder="Пароль"
-                       required>
-
-                <button type="submit">
-                    Войти
-                </button>
-
+                <input type="text" placeholder="Имя пользователя" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit">Войти</button>
             </form>
-
         </div>
-
     </div>
+
+    <div id="cookieConsentBanner" class="cookie-consent-banner" style="display: none;">
+        <div class="cookie-consent-content">
+            <div class="cookie-text">
+                <strong>🍪 Мы используем cookie и обрабатываем персональные данные</strong>
+                <p>
+                    Этот сайт использует файлы cookie для улучшения работы, анализа трафика и персонализации контента. 
+                    Продолжая использовать сайт, вы соглашаетесь с нашей 
+                    <a href="privacy.html" target="_blank">Политикой конфиденциальности</a> 
+                    и даёте согласие на обработку персональных данных. 
+                    Вы можете настроить параметры cookie или отказаться от их использования в любое время.
+                </p>
+            </div>
+            <div class="cookie-actions">
+                <button id="cookieAcceptAll" class="cookie-btn accept-all">Принять все</button>
+                <button id="cookieRejectAll" class="cookie-btn reject-all">Отказаться</button>
+                <button id="cookieSettings" class="cookie-btn settings">Настроить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Расширенная панель настройки cookie (скрыта по умолчанию) -->
+    <div id="cookieSettingsPanel" class="cookie-settings-panel" style="display: none;">
+        <div class="cookie-settings-content">
+            <h3>Настройка cookie и обработки данных</h3>
+            <p>Выберите, какие типы cookie и обработки данных вы разрешаете:</p>
+            
+            <div class="cookie-option">
+                <input type="checkbox" id="necessaryCookies" checked disabled>
+                <label for="necessaryCookies"><strong>Необходимые cookie</strong> — требуются для работы сайта (всегда включены)</label>
+            </div>
+            
+            <div class="cookie-option">
+                <input type="checkbox" id="analyticsCookies" checked>
+                <label for="analyticsCookies"><strong>Аналитические cookie</strong> — помогают нам анализировать посещаемость и улучшать сайт</label>
+            </div>
+            
+            <div class="cookie-option">
+                <input type="checkbox" id="marketingCookies" checked>
+                <label for="marketingCookies"><strong>Маркетинговые cookie</strong> — используются для персонализации рекламы и предложений</label>
+            </div>
+            
+            <div class="cookie-option">
+                <input type="checkbox" id="personalDataProcessing" checked>
+                <label for="personalDataProcessing"><strong>Обработка персональных данных</strong> — согласие на хранение и обработку введённых вами данных (имя, email и др.) в соответствии с 152-ФЗ</label>
+            </div>
+            
+            <div class="cookie-settings-actions">
+                <button id="saveCookieSettings" class="cookie-btn accept-all">Сохранить настройки</button>
+                <button id="closeCookieSettings" class="cookie-btn settings">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="site-footer">
-
         <div class="footer-grid">
-
             <div class="footer-block">
-
                 <h3>О магазине</h3>
-
                 <p>
                     Мы специализируемся на коллекционных товарах
                     Final Fantasy VII Remake и официальном мерче.
                 </p>
-
             </div>
-
             <div class="footer-block">
-
                 <h3>Почему нам доверяют</h3>
-
                 <p>
                     ✔ Качественные фигурки и мерч<br>
                     ✔ Безопасная оплата<br>
                     ✔ Надёжная доставка по РФ<br>
                     ✔ Поддержка покупателей
                 </p>
-
             </div>
-
             <div class="footer-block">
-
                 <h3>Наша команда</h3>
-
                 <p>
                     Над сайтом работают фанаты серии Final Fantasy,
                     коллекционеры и дизайнеры игрового мерча.
                 </p>
-
             </div>
-
             <div class="footer-block">
-
                 <h3>Обратная связь</h3>
-
                 <p>
                     VK: vk.com/finalfantasyshop<br>
                     Email: support@ff7shop.ru
                 </p>
-
             </div>
-
             <div class="footer-block">
-
                 <h3>Карта сайта</h3>
-
                 <a href="index.html">Главная</a>
                 <a href="characters.html">Персонажи</a>
                 <a href="materia.html">Система материи</a>
                 <a href="shop.html">Каталог товаров</a>
                 <a href="cart.html">Корзина</a>
                 <a href="profile.html">Личный кабинет</a>
-
             </div>
-
         </div>
-
         <div class="footer-bottom">
             © Final Fantasy VII Remake Fan Shop
         </div>
-
     </footer>
-
-</body>
-</html>
