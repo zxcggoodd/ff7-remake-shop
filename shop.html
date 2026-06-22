@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -40,772 +40,739 @@
 </head>
 <body>
 
-    <header>
-        <div id="auth-block" class="auth-block"></div>
-        <div class="cart-widget">
+<header>
+    <div id="auth-block" class="auth-block"></div>
+    <div class="cart-widget">
 
-            <a href="cart.html" class="cart-link" id="cart-link">
+        <a href="cart.html" class="cart-link" id="cart-link">
 
-                <img src="images/cart.png" class="cart-icon">
+            <img src="images/cart.png" class="cart-icon">
 
-                <span id="cart-count">0</span>
+            <span id="cart-count">0</span>
 
-            </a>
+        </a>
+
+    </div>
+
+    <a href="index.html" class="logo-container">
+        <img src="images/logo.png" class="game-logo">
+    </a>
+    <a href="index.html" class="logo-title-link">
+        <h1>Final Fantasy VII Remake</h1>
+    </a>
+
+    <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="characters.html">Персонажи</a>
+        <a href="materia.html">Система материи</a>
+        <a href="shop.html" class="active">Каталог товаров</a>
+        <a href="profile.html">Личный кабинет</a>
+    </nav>
+</header>
+
+<main>
+    <section class="shop">
+        <h2>Каталог магазина</h2>
+
+        <div class="shop-grid">
+
+            <!-- ФИГУРКА 1 -->
+            <div class="shop-item" onclick="openShopModal('figura1')">
+                <img src="images/shop/fig1.jpg">
+                <h3>Фигурка SOLDIER</h3>
+                <p class="price">15 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Фигурка SOLDIER', 15000)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <!-- ФИГУРКА 2 -->
+            <div class="shop-item" onclick="openShopModal('figura2')">
+                <img src="images/shop/asd1.jpg">
+                <h3>Фигурка AVALANCHE</h3>
+                <p class="price">14 500 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Фигурка AVALANCHE', 14500)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <!-- ФИГУРКА 3 -->
+            <div class="shop-item" onclick="openShopModal('figura3')">
+                <img src="images/shop/vinc1.jpg">
+                <h3>Фигурка Vincent</h3>
+                <p class="price">16 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Фигурка Vincent', 16000)">
+                    Добавить в корзину
+                </button>
+            </div>
+            <div class="shop-item" onclick="openShopModal('zxc1')">
+                <img src="images/shop/zxc1.jpg">
+                <h3>Фигурка Barret Wallace</h3>
+                <p class="price">13 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Barret Wallace', 13000)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc2')">
+                <img src="images/shop/zxc2.jpg">
+                <h3>Фигурка Reno (Turks)</h3>
+                <p class="price">9 500 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Reno (Turks)', 9500)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc3')">
+                <img src="images/shop/zxc3.jpg">
+                <h3>Фигурка Sephiroth</h3>
+                <p class="price">13 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Sephiroth', 13000)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc4')">
+                <img src="images/shop/zxc4.jpg">
+                <h3>Фигурка Rufus Shinra</h3>
+                <p class="price">6 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Rufus Shinra', 6000)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc5')">
+                <img src="images/shop/zxc5.jpg">
+                <h3>Фигурка Cloud Strife (SOLDIER)</h3>
+                <p class="price">11 200 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Cloud Strife (SOLDIER)', 11200)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc6')">
+                <img src="images/shop/zxc6.jpg">
+                <h3>Фигурка Vincent Valentine</h3>
+                <p class="price">10 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Vincent Valentine', 10000)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc7')">
+                <img src="images/shop/zxc7.jpg">
+                <h3>Фигурка Yuffie Kisaragi</h3>
+                <p class="price">11 200 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Yuffie Kisaragi', 11200)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <div class="shop-item" onclick="openShopModal('zxc8')">
+                <img src="images/shop/zxc8.jpg">
+                <h3>Фигурка Tseng (Turks)</h3>
+                <p class="price">12 999 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Tseng (Turks)', 12999)">
+                    Добавить в корзину
+                </button>
+            </div>
+            <!-- ФИГУРКА TIFA -->
+            <div class="shop-item" onclick="openShopModal('tifa1')">
+                <img src="images/shop/tifa1.png">
+                <h3>Фигурка Tifa Lockhart</h3>
+                <p class="price">14 000 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Фигурка Tifa Lockhart', 14000)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <!-- ФИГУРКА FIGHTER -->
+            <div class="shop-item" onclick="openShopModal('fighter1')">
+                <img src="images/shop/figther.png">
+                <h3>Фигурка Zack Fair</h3>
+                <p class="price">13 500 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Фигурка Zack Fair', 13500)">
+                    Добавить в корзину
+                </button>
+            </div>
+            
+            <div class="shop-item" onclick="openShopModal('beast1')">
+                <img src="images/shop/beast.png">
+                <h3>Фигурка Red XIII</h3>
+                <p class="price">12 500 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Фигурка Red XIII', 12500)">
+                    Добавить в корзину
+                </button>
+            </div>
+            <!-- ПОСТЕР 1 -->
+            <div class="shop-item" onclick="openShopModal('poster1')">
+                <img src="images/shop/post1.jpg">
+                <h3>Журнал FFVII</h3>
+                <p class="price">2 500 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Журнал FFVII', 2500)">
+                    Добавить в корзину
+                </button>
+            </div>
+
+            <!-- ПОСТЕР 2 -->
+            <div class="shop-item" onclick="openShopModal('poster2')">
+                <img src="images/shop/post2.jpg">
+                <h3>Журнал Sephiroth</h3>
+                <p class="price">2 800 rub</p>
+
+                <button class="add-cart-btn"
+                        onclick="event.stopPropagation(); addToCart('Журнал Sephiroth', 2800)">
+                    Добавить в корзину
+                </button>
+            </div>
+            
+
+        </div>
+    </section>
+</main>
+
+<!-- МОДАЛКИ -->
+<div id="figura1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('figura1')">&times;</span>
+
+        <img src="images/shop/fig1.jpg">
+
+        <h2>Фигурка SOLDIER</h2>
+
+        <p>
+            Детализированная коллекционная фигурка бойца SOLDIER
+            из Final Fantasy VII Remake.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + ABS пластик</p>
+        <p><strong>Высота:</strong> 28 см</p>
+        <p><strong>Вес:</strong> 1.2 кг</p>
+
+        <p class="price">15 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Фигурка SOLDIER', 15000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="figura2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('figura2')">&times;</span>
+
+        <img src="images/shop/asd1.jpg">
+
+        <h2>Фигурка AVALANCHE</h2>
+
+        <p>
+            Коллекционная фигурка бойца AVALANCHE
+            с высокой детализацией экипировки.
+        </p>
+
+        <p><strong>Материал:</strong> PVC пластик</p>
+        <p><strong>Высота:</strong> 26 см</p>
+        <p><strong>Вес:</strong> 1.0 кг</p>
+
+        <p class="price">14 500 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Фигурка AVALANCHE', 14500)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="figura3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('figura3')">&times;</span>
+
+        <img src="images/shop/vinc1.jpg">
+
+        <h2>Фигурка Vincent</h2>
+
+        <p>
+            Коллекционная фигурка Vincent Valentine
+            в фирменном плаще и с оружием.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + смола</p>
+        <p><strong>Высота:</strong> 30 см</p>
+        <p><strong>Вес:</strong> 1.4 кг</p>
+
+        <p class="price">16 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Фигурка Vincent', 16000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc1')">&times;</span>
+
+        <img src="images/shop/zxc1.jpg">
+
+        <h2>Barret Wallace</h2>
+
+        <p>
+            Мощная фигурка Баррета с культовым оружием
+            и высокой детализацией брони.
+        </p>
+
+        <p><strong>Материал:</strong> ABS + PVC</p>
+        <p><strong>Высота:</strong> 29 см</p>
+        <p><strong>Вес:</strong> 1.5 кг</p>
+
+        <p class="price">13 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Barret Wallace', 13000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc2')">&times;</span>
+
+        <img src="images/shop/zxc2.jpg">
+
+        <h2>Reno (Turks)</h2>
+
+        <p>
+            Коллекционная фигурка Reno из подразделения Turks
+            с фирменной электродубинкой.
+        </p>
+
+        <p><strong>Материал:</strong> PVC пластик</p>
+        <p><strong>Высота:</strong> 24 см</p>
+        <p><strong>Вес:</strong> 850 г</p>
+
+        <p class="price">9 500 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Reno (Turks)', 9500)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc3')">&times;</span>
+
+        <img src="images/shop/zxc3.jpg">
+
+        <h2>Sephiroth</h2>
+
+        <p>
+            Премиальная фигурка Sephiroth
+            с легендарным мечом Masamune.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + металл</p>
+        <p><strong>Высота:</strong> 32 см</p>
+        <p><strong>Вес:</strong> 1.6 кг</p>
+
+        <p class="price">13 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Sephiroth', 13000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc4')">&times;</span>
+
+        <img src="images/shop/zxc4.jpg">
+
+        <h2>Rufus Shinra</h2>
+
+        <p>
+            Фигурка президента Rufus Shinra
+            в классическом костюме Shinra.
+        </p>
+
+        <p><strong>Материал:</strong> PVC пластик</p>
+        <p><strong>Высота:</strong> 23 см</p>
+        <p><strong>Вес:</strong> 780 г</p>
+
+        <p class="price">6 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Rufus Shinra', 6000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc5" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc5')">&times;</span>
+
+        <img src="images/shop/zxc5.jpg">
+
+        <h2>Cloud Strife (SOLDIER)</h2>
+
+        <p>
+            Детализированная фигурка Cloud Strife
+            с мечом Buster Sword.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + ABS</p>
+        <p><strong>Высота:</strong> 31 см</p>
+        <p><strong>Вес:</strong> 1.3 кг</p>
+
+        <p class="price">11 200 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Cloud Strife (SOLDIER)', 11200)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc6" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc6')">&times;</span>
+
+        <img src="images/shop/zxc6.jpg">
+
+        <h2>Vincent Valentine</h2>
+
+        <p>
+            Мрачная фигурка Vincent Valentine
+            с плащом и огнестрельным оружием.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + смола</p>
+        <p><strong>Высота:</strong> 29 см</p>
+        <p><strong>Вес:</strong> 1.25 кг</p>
+
+        <p class="price">10 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Vincent Valentine', 10000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc7" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc7')">&times;</span>
+
+        <img src="images/shop/zxc7.jpg">
+
+        <h2>Yuffie Kisaragi</h2>
+
+        <p>
+            Яркая фигурка Yuffie Kisaragi
+            в стиле Intermission/Rebirth.
+        </p>
+
+        <p><strong>Материал:</strong> PVC пластик</p>
+        <p><strong>Высота:</strong> 25 см</p>
+        <p><strong>Вес:</strong> 920 г</p>
+
+        <p class="price">11 200 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Yuffie Kisaragi', 11200)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="zxc8" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('zxc8')">&times;</span>
+
+        <img src="images/shop/zxc8.jpg">
+
+        <h2>Tseng (Turks)</h2>
+
+        <p>
+            Коллекционная фигурка Tseng
+            из элитного подразделения Turks.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + ABS</p>
+        <p><strong>Высота:</strong> 27 см</p>
+        <p><strong>Вес:</strong> 980 г</p>
+
+        <p class="price">12 999 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Tseng (Turks)', 12999)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="poster1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('poster1')">&times;</span>
+
+        <img src="images/shop/post1.jpg">
+
+        <h2>Журнал FFVII</h2>
+
+        <p>
+            Коллекционный журнал Final Fantasy VII
+            с артами и материалами разработки.
+        </p>
+
+        <p><strong>Материал:</strong> Глянцевая бумага</p>
+        <p><strong>Количество страниц:</strong> 120</p>
+        <p><strong>Вес:</strong> 350 г</p>
+
+        <p class="price">2 500 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Журнал FFVII', 2500)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="poster2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('poster2')">&times;</span>
+
+        <img src="images/shop/post2.jpg">
+
+        <h2>Журнал Sephiroth</h2>
+
+        <p>
+            Тематический журнал Sephiroth Edition
+            с эксклюзивными иллюстрациями.
+        </p>
+
+        <p><strong>Материал:</strong> Глянцевая бумага</p>
+        <p><strong>Количество страниц:</strong> 96</p>
+        <p><strong>Вес:</strong> 310 г</p>
+
+        <p class="price">2 800 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Журнал Sephiroth', 2800)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+<div id="tifa1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('tifa1')">&times;</span>
+
+        <img src="images/shop/tifa1.png">
+
+        <h2>Tifa Lockhart</h2>
+
+        <p>
+            Коллекционная фигурка Тифы Локхарт из Final Fantasy VII Rebirth.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + ABS</p>
+        <p><strong>Высота:</strong> 29 см</p>
+        <p><strong>Вес:</strong> 1.2 кг</p>
+
+        <p class="price">14 000 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Фигурка Tifa Lockhart',14000)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="fighter1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('fighter1')">&times;</span>
+
+        <img src="images/shop/figther.png">
+
+        <h2>Zack Fair</h2>
+
+        <p>
+            Детализированная фигурка Зака Фэйра с мечом Buster Sword.
+        </p>
+
+        <p><strong>Материал:</strong> PVC пластик</p>
+        <p><strong>Высота:</strong> 30 см</p>
+        <p><strong>Вес:</strong> 1.3 кг</p>
+
+        <p class="price">13 500 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Фигурка Zack Fair',13500)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+
+<div id="beast1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeShopModal('beast1')">&times;</span>
+
+        <img src="images/shop/beast.png">
+
+        <h2>Red XIII</h2>
+
+        <p>
+            Фигурка Red XIII с высокой детализацией и подставкой.
+        </p>
+
+        <p><strong>Материал:</strong> PVC + смола</p>
+        <p><strong>Высота:</strong> 22 см</p>
+        <p><strong>Вес:</strong> 950 г</p>
+
+        <p class="price">12 500 rub</p>
+
+        <button class="add-cart-btn"
+                onclick="addToCart('Фигурка Red XIII',12500)">
+            Добавить в корзину
+        </button>
+    </div>
+</div>
+<div id="authModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeAuthModal()">&times;</span>
+
+        <h2>Вход / Регистрация</h2>
+
+        <form class="auth-form">
+
+            <input type="text"
+                   placeholder="Имя пользователя"
+                   required>
+
+            <input type="email"
+                   placeholder="Email"
+                   required>
+
+            <input type="password"
+                   placeholder="Пароль"
+                   required>
+
+            <button type="submit">
+                Войти
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<footer class="site-footer">
+
+    <div class="footer-grid">
+
+        <div class="footer-block">
+
+            <h3>О магазине</h3>
+
+            <p>
+                Мы специализируемся на коллекционных товарах
+                Final Fantasy VII Remake и официальном мерче.
+            </p>
 
         </div>
 
-        <a href="index.html" class="logo-container">
-            <img src="images/logo.png" class="game-logo">
-        </a>
-        <a href="index.html" class="logo-title-link">
-            <h1>Final Fantasy VII Remake</h1>
-        </a>
+        <div class="footer-block">
 
-        <nav class="main-nav">
+            <h3>Почему нам доверяют</h3>
+
+            <p>
+                ✔ Качественные фигурки и мерч<br>
+                ✔ Безопасная оплата<br>
+                ✔ Надёжная доставка по РФ<br>
+                ✔ Поддержка покупателей
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Наша команда</h3>
+
+            <p>
+                Над сайтом работают фанаты серии Final Fantasy,
+                коллекционеры и дизайнеры игрового мерча.
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Обратная связь</h3>
+
+            <p>
+                VK: vk.com/finalfantasyshop<br>
+                Email: support@ff7shop.ru
+            </p>
+
+        </div>
+
+        <div class="footer-block">
+
+            <h3>Карта сайта</h3>
+
             <a href="index.html">Главная</a>
             <a href="characters.html">Персонажи</a>
             <a href="materia.html">Система материи</a>
-            <a href="shop.html" class="active">Каталог товаров</a>
+            <a href="shop.html">Каталог товаров</a>
+            <a href="cart.html">Корзина</a>
             <a href="profile.html">Личный кабинет</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="shop">
-            <h2>Каталог магазина</h2>
-
-            <div class="shop-grid">
-
-                <!-- ФИГУРКА 1 -->
-                <div class="shop-item" onclick="openShopModal('figura1')">
-                    <img src="images/shop/fig1.jpg">
-                    <h3>Фигурка SOLDIER</h3>
-                    <p class="price">15 000 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Фигурка SOLDIER', 15000)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <!-- ФИГУРКА 2 -->
-                <div class="shop-item" onclick="openShopModal('figura2')">
-                    <img src="images/shop/asd1.jpg">
-                    <h3>Фигурка AVALANCHE</h3>
-                    <p class="price">14 500 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Фигурка AVALANCHE', 14500)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <!-- ФИГУРКА 3 -->
-                <div class="shop-item" onclick="openShopModal('figura3')">
-                    <img src="images/shop/vinc1.jpg">
-                    <h3>Фигурка Vincent</h3>
-                    <p class="price">16 000 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Фигурка Vincent', 16000)">
-                        Добавить в корзину
-                    </button>
-                </div>
-                <div class="shop-item" onclick="openShopModal('zxc1')">
-                    <img src="images/shop/zxc1.jpg">
-                    <h3>Фигурка Barret Wallace</h3>
-                    <p class="price">13 000 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Barret Wallace', 13000)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc2')">
-                    <img src="images/shop/zxc2.jpg">
-                    <h3>Фигурка Reno (Turks)</h3>
-                    <p class="price">9 500 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Reno (Turks)', 9500)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc3')">
-                    <img src="images/shop/zxc3.jpg">
-                    <h3>Фигурка Sephiroth</h3>
-                    <p class="price">13 000 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Sephiroth', 13000)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc4')">
-                    <img src="images/shop/zxc4.jpg">
-                    <h3>Фигурка Rufus Shinra</h3>
-                    <p class="price">6 000 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Rufus Shinra', 6000)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc5')">
-                    <img src="images/shop/zxc5.jpg">
-                    <h3>Фигурка Cloud Strife (SOLDIER)</h3>
-                    <p class="price">11 200 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Cloud Strife (SOLDIER)', 11200)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc6')">
-                    <img src="images/shop/zxc6.jpg">
-                    <h3>Фигурка Vincent Valentine</h3>
-                    <p class="price">10 000 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Vincent Valentine', 10000)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc7')">
-                    <img src="images/shop/zxc7.jpg">
-                    <h3>Фигурка Yuffie Kisaragi</h3>
-                    <p class="price">11 200 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Yuffie Kisaragi', 11200)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('zxc8')">
-                    <img src="images/shop/zxc8.jpg">
-                    <h3>Фигурка Tseng (Turks)</h3>
-                    <p class="price">12 999 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Tseng (Turks)', 12999)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <!-- ПОСТЕР 1 -->
-                <div class="shop-item" onclick="openShopModal('poster1')">
-                    <img src="images/shop/post1.jpg">
-                    <h3>Журнал FFVII</h3>
-                    <p class="price">2 500 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Журнал FFVII', 2500)">
-                        Добавить в корзину
-                    </button>
-                </div>
-
-                <!-- ПОСТЕР 2 -->
-                <div class="shop-item" onclick="openShopModal('poster2')">
-                    <img src="images/shop/post2.jpg">
-                    <h3>Журнал Sephiroth</h3>
-                    <p class="price">2 800 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Журнал Sephiroth', 2800)">
-                        Добавить в корзину
-                    </button>
-                </div>
-                
-                <div class="shop-item" onclick="openShopModal('item1')">
-
-                    <img src="images/shop/kruj1.jpg">
-
-                    <h3>Main игра кружка</h3>
-
-                    <p class="price">1500 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Main кружка', 1500)">
-
-                        Добавить в корзину
-
-                    </button>
-
-                </div>
-
-                <div class="shop-item" onclick="openShopModal('item2')">
-
-                    <img src="images/shop/kruj2.jpg">
-
-                    <h3>Game кружка 2</h3>
-
-                    <p class="price">1500 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Кружка2', 1500)">
-
-                        Добавить в корзину
-
-                    </button>
-
-                </div>
-                <div class="shop-item" onclick="openShopModal('item3')">
-
-                    <img src="images/shop/kruj3.jpg">
-
-                    <h3>Game кружка 3</h3>
-
-                    <p class="price">1500 rub</p>
-
-                    <button class="add-cart-btn"
-                            onclick="event.stopPropagation(); addToCart('Кружка3', 1500)">
-
-                        Добавить в корзину
-
-                    </button>
-
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- МОДАЛКИ -->
-    <div id="figura1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('figura1')">&times;</span>
-
-            <img src="images/shop/fig1.jpg">
-
-            <h2>Фигурка SOLDIER</h2>
-
-            <p>
-                Детализированная коллекционная фигурка бойца SOLDIER
-                из Final Fantasy VII Remake.
-            </p>
-
-            <p><strong>Материал:</strong> PVC + ABS пластик</p>
-            <p><strong>Высота:</strong> 28 см</p>
-            <p><strong>Вес:</strong> 1.2 кг</p>
-
-            <p class="price">15 000 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Фигурка SOLDIER', 15000)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="figura2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('figura2')">&times;</span>
-
-            <img src="images/shop/asd1.jpg">
-
-            <h2>Фигурка AVALANCHE</h2>
-
-            <p>
-                Коллекционная фигурка бойца AVALANCHE
-                с высокой детализацией экипировки.
-            </p>
-
-            <p><strong>Материал:</strong> PVC пластик</p>
-            <p><strong>Высота:</strong> 26 см</p>
-            <p><strong>Вес:</strong> 1.0 кг</p>
-
-            <p class="price">14 500 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Фигурка AVALANCHE', 14500)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="figura3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('figura3')">&times;</span>
-
-            <img src="images/shop/vinc1.jpg">
-
-            <h2>Фигурка Vincent</h2>
-
-            <p>
-                Коллекционная фигурка Vincent Valentine
-                в фирменном плаще и с оружием.
-            </p>
-
-            <p><strong>Материал:</strong> PVC + смола</p>
-            <p><strong>Высота:</strong> 30 см</p>
-            <p><strong>Вес:</strong> 1.4 кг</p>
-
-            <p class="price">16 000 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Фигурка Vincent', 16000)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc1')">&times;</span>
-
-            <img src="images/shop/zxc1.jpg">
-
-            <h2>Barret Wallace</h2>
-
-            <p>
-                Мощная фигурка Баррета с культовым оружием
-                и высокой детализацией брони.
-            </p>
-
-            <p><strong>Материал:</strong> ABS + PVC</p>
-            <p><strong>Высота:</strong> 29 см</p>
-            <p><strong>Вес:</strong> 1.5 кг</p>
-
-            <p class="price">13 000 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Barret Wallace', 13000)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc2')">&times;</span>
-
-            <img src="images/shop/zxc2.jpg">
-
-            <h2>Reno (Turks)</h2>
-
-            <p>
-                Коллекционная фигурка Reno из подразделения Turks
-                с фирменной электродубинкой.
-            </p>
-
-            <p><strong>Материал:</strong> PVC пластик</p>
-            <p><strong>Высота:</strong> 24 см</p>
-            <p><strong>Вес:</strong> 850 г</p>
-
-            <p class="price">9 500 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Reno (Turks)', 9500)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc3')">&times;</span>
-
-            <img src="images/shop/zxc3.jpg">
-
-            <h2>Sephiroth</h2>
-
-            <p>
-                Премиальная фигурка Sephiroth
-                с легендарным мечом Masamune.
-            </p>
-
-            <p><strong>Материал:</strong> PVC + металл</p>
-            <p><strong>Высота:</strong> 32 см</p>
-            <p><strong>Вес:</strong> 1.6 кг</p>
-
-            <p class="price">13 000 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Sephiroth', 13000)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc4" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc4')">&times;</span>
-
-            <img src="images/shop/zxc4.jpg">
-
-            <h2>Rufus Shinra</h2>
-
-            <p>
-                Фигурка президента Rufus Shinra
-                в классическом костюме Shinra.
-            </p>
-
-            <p><strong>Материал:</strong> PVC пластик</p>
-            <p><strong>Высота:</strong> 23 см</p>
-            <p><strong>Вес:</strong> 780 г</p>
-
-            <p class="price">6 000 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Rufus Shinra', 6000)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc5" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc5')">&times;</span>
-
-            <img src="images/shop/zxc5.jpg">
-
-            <h2>Cloud Strife (SOLDIER)</h2>
-
-            <p>
-                Детализированная фигурка Cloud Strife
-                с мечом Buster Sword.
-            </p>
-
-            <p><strong>Материал:</strong> PVC + ABS</p>
-            <p><strong>Высота:</strong> 31 см</p>
-            <p><strong>Вес:</strong> 1.3 кг</p>
-
-            <p class="price">11 200 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Cloud Strife (SOLDIER)', 11200)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc6" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc6')">&times;</span>
-
-            <img src="images/shop/zxc6.jpg">
-
-            <h2>Vincent Valentine</h2>
-
-            <p>
-                Мрачная фигурка Vincent Valentine
-                с плащом и огнестрельным оружием.
-            </p>
-
-            <p><strong>Материал:</strong> PVC + смола</p>
-            <p><strong>Высота:</strong> 29 см</p>
-            <p><strong>Вес:</strong> 1.25 кг</p>
-
-            <p class="price">10 000 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Vincent Valentine', 10000)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc7" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc7')">&times;</span>
-
-            <img src="images/shop/zxc7.jpg">
-
-            <h2>Yuffie Kisaragi</h2>
-
-            <p>
-                Яркая фигурка Yuffie Kisaragi
-                в стиле Intermission/Rebirth.
-            </p>
-
-            <p><strong>Материал:</strong> PVC пластик</p>
-            <p><strong>Высота:</strong> 25 см</p>
-            <p><strong>Вес:</strong> 920 г</p>
-
-            <p class="price">11 200 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Yuffie Kisaragi', 11200)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="zxc8" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('zxc8')">&times;</span>
-
-            <img src="images/shop/zxc8.jpg">
-
-            <h2>Tseng (Turks)</h2>
-
-            <p>
-                Коллекционная фигурка Tseng
-                из элитного подразделения Turks.
-            </p>
-
-            <p><strong>Материал:</strong> PVC + ABS</p>
-            <p><strong>Высота:</strong> 27 см</p>
-            <p><strong>Вес:</strong> 980 г</p>
-
-            <p class="price">12 999 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Tseng (Turks)', 12999)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="poster1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('poster1')">&times;</span>
-
-            <img src="images/shop/post1.jpg">
-
-            <h2>Журнал FFVII</h2>
-
-            <p>
-                Коллекционный журнал Final Fantasy VII
-                с артами и материалами разработки.
-            </p>
-
-            <p><strong>Материал:</strong> Глянцевая бумага</p>
-            <p><strong>Количество страниц:</strong> 120</p>
-            <p><strong>Вес:</strong> 350 г</p>
-
-            <p class="price">2 500 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Журнал FFVII', 2500)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-
-    <div id="poster2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeShopModal('poster2')">&times;</span>
-
-            <img src="images/shop/post2.jpg">
-
-            <h2>Журнал Sephiroth</h2>
-
-            <p>
-                Тематический журнал Sephiroth Edition
-                с эксклюзивными иллюстрациями.
-            </p>
-
-            <p><strong>Материал:</strong> Глянцевая бумага</p>
-            <p><strong>Количество страниц:</strong> 96</p>
-            <p><strong>Вес:</strong> 310 г</p>
-
-            <p class="price">2 800 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Журнал Sephiroth', 2800)">
-                Добавить в корзину
-            </button>
-        </div>
-    </div>
-    <div id="item1" class="modal">
-
-        <div class="modal-content">
-
-        <span class="close"
-              onclick="closeShopModal('item1')">&times;</span>
-
-            <img src="images/shop/kruj1.jpg">
-
-            <h2>Кружка 1</h2>
-
-            <p>
-                Кружка лого мейн игра
-            </p>
-
-            <p><strong>Материал:</strong> Керамика</p>
-            <p><strong>Длина:</strong> 50</p>
-            <p><strong>Вес:</strong> 500 г</p>
-
-            <p class="price">1500 rub</p>
-
-            <button class="add-cart-btn"
-                    onclick="addToCart('Main кружка', 1500)">
-
-                Добавить в корзину
-
-            </button>
-
-        </div>
-</div>
-        <div id="item2" class="modal">
-
-            <div class="modal-content">
-
-        <span class="close"
-              onclick="closeShopModal('item2')">&times;</span>
-
-                <img src="images/shop/kruj2.jpg">
-
-                <h2>Кружка 2</h2>
-
-                <p>
-                    Кружка с игры
-                </p>
-
-                <p><strong>Материал:</strong> Керамика</p>
-                <p><strong>Длина:</strong> 50</p>
-                <p><strong>Вес:</strong> 500 г</p>
-
-                <p class="price">1500 rub</p>
-
-                <button class="add-cart-btn"
-                        onclick="addToCart('Кружка2', 1500)">
-
-                    Добавить в корзину
-
-                </button>
-
-            </div>
-        </div>
-        <div id="item3" class="modal">
-
-            <div class="modal-content">
-
-        <span class="close"
-              onclick="closeShopModal('item3')">&times;</span>
-
-                <img src="images/shop/kruj3.jpg">
-
-                <h2>Кружка 3</h2>
-
-                <p>
-                    Кружка лого мейн игра
-                </p>
-
-                <p><strong>Материал:</strong> Керамика</p>
-                <p><strong>Длина:</strong> 50</p>
-                <p><strong>Вес:</strong> 500 г</p>
-
-                <p class="price">1500 rub</p>
-
-                <button class="add-cart-btn"
-                        onclick="addToCart('Кружка3', 1500)">
-
-                    Добавить в корзину
-
-                </button>
-
-            </div>
-
-        </div>
-    <div id="authModal" class="modal">
-
-        <div class="modal-content">
-
-            <span class="close" onclick="closeAuthModal()">&times;</span>
-
-            <h2>Вход / Регистрация</h2>
-
-            <form class="auth-form">
-
-                <input type="text"
-                       placeholder="Имя пользователя"
-                       required>
-
-                <input type="email"
-                       placeholder="Email"
-                       required>
-
-                <input type="password"
-                       placeholder="Пароль"
-                       required>
-
-                <button type="submit">
-                    Войти
-                </button>
-
-            </form>
 
         </div>
 
     </div>
-    <footer class="site-footer">
 
-        <div class="footer-grid">
+    <div class="footer-bottom">
+        © Final Fantasy VII Remake Fan Shop
+    </div>
 
-            <div class="footer-block">
-
-                <h3>О магазине</h3>
-
-                <p>
-                    Мы специализируемся на коллекционных товарах
-                    Final Fantasy VII Remake и официальном мерче.
-                </p>
-
-            </div>
-
-            <div class="footer-block">
-
-                <h3>Почему нам доверяют</h3>
-
-                <p>
-                    ✔ Качественные фигурки и мерч<br>
-                    ✔ Безопасная оплата<br>
-                    ✔ Надёжная доставка по РФ<br>
-                    ✔ Поддержка покупателей
-                </p>
-
-            </div>
-
-            <div class="footer-block">
-
-                <h3>Наша команда</h3>
-
-                <p>
-                    Над сайтом работают фанаты серии Final Fantasy,
-                    коллекционеры и дизайнеры игрового мерча.
-                </p>
-
-            </div>
-
-            <div class="footer-block">
-
-                <h3>Обратная связь</h3>
-
-                <p>
-                    VK: vk.com/finalfantasyshop<br>
-                    Email: support@ff7shop.ru
-                </p>
-
-            </div>
-
-            <div class="footer-block">
-
-                <h3>Карта сайта</h3>
-
-                <a href="index.html">Главная</a>
-                <a href="characters.html">Персонажи</a>
-                <a href="materia.html">Система материи</a>
-                <a href="shop.html">Каталог товаров</a>
-                <a href="cart.html">Корзина</a>
-                <a href="profile.html">Личный кабинет</a>
-
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            © Final Fantasy VII Remake Fan Shop
-        </div>
-
-    </footer>
+</footer>
 </body>
 </html>
