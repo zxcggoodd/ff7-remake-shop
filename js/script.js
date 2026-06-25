@@ -416,44 +416,54 @@ document.addEventListener("DOMContentLoaded", function () {
         if (profileDateEl) profileDateEl.textContent = "Дата регистрации: " + regDate;
         renderOrders();
     }
-        const slides = document.querySelectorAll(".gameplay-scroll .slide");
-    
-    if (slides.length > 0) {
-        let currentSlide = 0;
-        
-        slides[currentSlide].classList.add("active");
-        slides[currentSlide].style.opacity = "1";
-        slides[currentSlide].style.transform = "scale(1.05)";
-        slides[currentSlide].style.boxShadow = "0 0 25px rgba(16, 110, 82, 0.7)";
-        slides[currentSlide].style.border = "2px solid rgba(16, 110, 82, 0.8)";
-        slides[currentSlide].style.zIndex = "2";
+      const slides = document.querySelectorAll(".gameplay-scroll .slide");
 
-        setInterval(() => {
-            slides[currentSlide].classList.remove("active");
-            slides[currentSlide].style.opacity = "0.6";
-            slides[currentSlide].style.transform = "scale(1)";
-            slides[currentSlide].style.boxShadow = "0 5px 18px rgba(0,0,0,0.45)";
-            slides[currentSlide].style.border = "none";
-            slides[currentSlide].style.zIndex = "1";
+if (slides.length > 0) {
+    let currentSlide = 0;
+    const scrollContainer = document.querySelector(".gameplay-scroll");
 
-            currentSlide++;
-
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            }
-
-            slides[currentSlide].classList.add("active");
-            slides[currentSlide].style.opacity = "1";
-            slides[currentSlide].style.transform = "scale(1.05)";
-            slides[currentSlide].style.boxShadow = "0 0 25px rgba(16, 110, 82, 0.7)";
-            slides[currentSlide].style.border = "2px solid rgba(16, 110, 82, 0.8)";
-            slides[currentSlide].style.zIndex = "2";
-
-            slides[currentSlide].scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "center"
-            });
-        }, 3000);
+    function resetAllSlides() {
+        slides.forEach(slide => {
+            slide.classList.remove("active");
+            slide.style.opacity = "0.6";
+            slide.style.transform = "scale(1)";
+            slide.style.boxShadow = "0 5px 18px rgba(0,0,0,0.45)";
+            slide.style.border = "2px solid transparent";
+            slide.style.zIndex = "1";
+        });
     }
+
+    function activateSlide(index) {
+        resetAllSlides();
+        
+        slides[index].classList.add("active");
+        slides[index].style.opacity = "1";
+        slides[index].style.transform = "scale(1.05)";
+        slides[index].style.boxShadow = "0 0 25px rgba(16, 110, 82, 0.7)";
+        slides[index].style.border = "2px solid rgba(16, 110, 82, 0.8)";
+        slides[index].style.zIndex = "2";
+
+        if (scrollContainer) {
+            const slideLeft = slides[index].offsetLeft;
+            const containerWidth = scrollContainer.offsetWidth;
+            const slideWidth = slides[index].offsetWidth;
+            const scrollTo = slideLeft - (containerWidth / 2) + (slideWidth / 2);
+
+            scrollContainer.scrollTo({
+                left: Math.max(0, scrollTo),
+                behavior: "smooth"
+            });
+        }
+    }
+
+    activateSlide(0);
+
+    setInterval(() => {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        activateSlide(currentSlide);
+    }, 3000);
+}
 });
