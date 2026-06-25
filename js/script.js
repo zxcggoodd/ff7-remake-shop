@@ -388,15 +388,117 @@ document.addEventListener("DOMContentLoaded", function () {
     updateAuthUI();
     updateCartCount();
 
-    const authForm = document.querySelector(".auth-form");
-    if (authForm) {
-        authForm.addEventListener("submit", function (e) {
+    function switchAuthTab(tab) {
+        const tabs = document.querySelectorAll('.auth-tab');
+        const forms = document.querySelectorAll('.auth-form');
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        forms.forEach(f => f.classList.remove('active'));
+        
+        if (tab === 'login') {
+            tabs[0].classList.add('active');
+            document.getElementById('loginForm').classList.add('active');
+        } else {
+            tabs[1].classList.add('active');
+            document.getElementById('registerForm').classList.add('active');
+        }
+    }
+
+    window.switchAuthTab = switchAuthTab;
+
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = authForm.querySelector("input[type='text']").value.trim();
+            const username = document.getElementById('loginUsername').value.trim();
             if (!username) return;
             localStorage.setItem("ff_user", username);
             closeAuthModal();
             updateAuthUI();
+            loginForm.reset();
+        });
+    }
+
+    const regForm = document.getElementById('registerForm');
+    if (regForm) {
+        const passwordInput = document.getElementById('regPassword');
+        const strengthBar = document.getElementById('strengthBar');
+        const passwordHint = document.getElementById('passwordHint');
+        const submitBtn = document.getElementById('regSubmitBtn');
+
+        function checkPasswordStrength(password) {
+            let score = 0;
+            if (password.length >= 6) score++;
+            if (password.length >= 10) score++;
+            if (/[A-ZА-ЯЁ]/.test(password)) score++;
+            if (/[0-9]/.test(password)) score++;
+            if (/[^A-Za-zА-Яа-яЁё0-9]/.test(password)) score++;
+            return score;
+        }
+
+        function updateStrengthIndicator(score) {
+            const colors = ['#e63946', '#e67e22', '#f1c40f', '#2ecc71', '#27ae60', '#27ae60'];
+            const labels = [
+                'Очень слабый пароль',
+                'Слабый пароль',
+                'Средний пароль',
+                'Хороший пароль',
+                'Надёжный пароль',
+                'Отличный пароль'
+            ];
+            const widths = ['20%', '40%', '60%', '80%', '100%', '100%'];
+
+            strengthBar.style.width = widths[score];
+            strengthBar.style.background = colors[score];
+            passwordHint.textContent = labels[score];
+            passwordHint.style.color = colors[score];
+        }
+
+        passwordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            const score = checkPasswordStrength(password);
+            updateStrengthIndicator(score);
+            
+            if (score < 3) {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.5';
+                submitBtn.style.cursor = 'not-allowed';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            }
+        });
+
+        regForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = passwordInput.value;
+            const score = checkPasswordStrength(password);
+            
+            if (score < 3) {
+                passwordHint.textContent = 'Пароль слишком слабый';
+                passwordHint.style.color = '#e63946';
+                return;
+            }
+
+            const username = document.getElementById('regUsername').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            if (!username) return;
+            
+            localStorage.setItem("ff_user", username);
+            localStorage.setItem("ff_email", email);
+            if (!localStorage.getItem("ff_reg_date")) {
+                localStorage.setItem("ff_reg_date", new Date().toLocaleDateString());
+            }
+            
+            closeAuthModal();
+            updateAuthUI();
+            regForm.reset();
+            strengthBar.style.width = '0%';
+            passwordHint.textContent = '';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
         });
     }
 
@@ -416,303 +518,100 @@ document.addEventListener("DOMContentLoaded", function () {
         if (profileDateEl) profileDateEl.textContent = "Дата регистрации: " + regDate;
         renderOrders();
     }
-    const regForm = document.getElementById('registerForm');
-
-if (regForm) {
-    const passwordInput = document.getElementById('regPassword');
-    const strengthBar = document.getElementById('strengthBar');
-    const passwordHint = document.getElementById('passwordHint');
-    const submitBtn = document.getElementById('regSubmitBtn');
-
-    function checkPasswordStrength(password) {
-        let score = 0;
-        
-        if (password.length >= 6) score++;
-        if (password.length >= 10) score++;
-        if (/[A-ZА-ЯЁ]/.test(password)) score++;
-        if (/[0-9]/.test(password)) score++;
-        if (/[^A-Za-zА-Яа-яЁё0-9]/.test(password)) score++;
-
-        return score;
-    }
-
-    function updateStrengthIndicator(score) {
-        const colors = ['#e63946', '#e67e22', '#f1c40f', '#2ecc71', '#27ae60', '#27ae60'];
-        const labels = [
-            'Очень слабый пароль',
-            'Слабый пароль',
-            'Средний пароль',
-            'Хороший пароль',
-            'Надёжный пароль',
-            'Отличный пароль'
-        ];
-        const widths = ['20%', '40%', '60%', '80%', '100%', '100%'];
-
-        strengthBar.style.width = widths[score];
-        strengthBar.style.background = colors[score];
-        passwordHint.textContent = labels[score];
-        passwordHint.style.color = colors[score];
-    }
-
-    passwordInput.addEventListener('input', function() {
-        const password = passwordInput.value;
-        const score = checkPasswordStrength(password);
-        
-        updateStrengthIndicator(score);
-        
-        if (score < 3) {
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.5';
-            submitBtn.style.cursor = 'not-allowed';
-        } else {
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
-        }
-    });
-
-    regForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const password = passwordInput.value;
-        const score = checkPasswordStrength(password);
-        
-        if (score < 3) {
-            passwordHint.textContent = 'Пароль слишком слабый. Добавьте цифры, заглавные буквы и символы';
-            passwordHint.style.color = '#e63946';
-            return;
-        }
-
-        const username = document.getElementById('regUsername').value.trim();
-        const email = document.getElementById('regEmail').value.trim();
-        
-        if (!username) return;
-        
-        localStorage.setItem("ff_user", username);
-        localStorage.setItem("ff_email", email);
-        
-        if (!localStorage.getItem("ff_reg_date")) {
-            localStorage.setItem("ff_reg_date", new Date().toLocaleDateString());
-        }
-        
-        closeAuthModal();
-        updateAuthUI();
-        
-        regForm.reset();
-        strengthBar.style.width = '0%';
-        passwordHint.textContent = '';
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
-    });
-}
-const slides = document.querySelectorAll(".gameplay-scroll .slide");
-
-if (slides.length > 0) {
-    let currentSlide = 0;
-    const scrollContainer = document.querySelector(".gameplay-scroll");
-
-    function resetAllSlides() {
-        slides.forEach(slide => {
-            slide.classList.remove("active");
-            slide.style.opacity = "0.6";
-            slide.style.transform = "scale(1)";
-            slide.style.boxShadow = "0 5px 18px rgba(0,0,0,0.45)";
-            slide.style.border = "2px solid transparent";
-            slide.style.zIndex = "1";
-            slide.style.transition = "all 0.5s ease";
-        });
-    }
-
-    function activateSlide(index) {
-        if (!slides[index]) return;
-        
-        resetAllSlides();
-        
-        slides[index].classList.add("active");
-        slides[index].style.opacity = "1";
-        slides[index].style.transform = "scale(1.05)";
-        slides[index].style.boxShadow = "0 0 25px rgba(16, 110, 82, 0.7)";
-        slides[index].style.border = "2px solid rgba(16, 110, 82, 0.8)";
-        slides[index].style.zIndex = "2";
-    }
 
     const descriptionBlocks = document.querySelectorAll('.game-description, .game-plot');
-
-descriptionBlocks.forEach(block => {
-    const heading = block.querySelector('h2');
-    const paragraphs = block.querySelectorAll('p');
-    
-    const contentWrapper = document.createElement('div');
-    contentWrapper.className = 'content-wrapper';
-    
-    paragraphs.forEach(p => {
-        contentWrapper.appendChild(p);
-    });
-    
-    block.appendChild(contentWrapper);
-    
-    const expandHint = document.createElement('div');
-    expandHint.className = 'expand-hint';
-    expandHint.textContent = 'Нажмите, чтобы развернуть';
-    block.appendChild(expandHint);
-    
-    const collapseHint = document.createElement('div');
-    collapseHint.className = 'collapse-hint';
-    collapseHint.textContent = 'Нажмите, чтобы свернуть';
-    block.appendChild(collapseHint);
-    
-    block.addEventListener('click', function() {
-        block.classList.toggle('expanded');
-    });
-});
-    function scrollToSlide(index) {
-        if (!scrollContainer || !slides[index]) return;
+    descriptionBlocks.forEach(block => {
+        const paragraphs = block.querySelectorAll('p');
         
-        const containerWidth = scrollContainer.offsetWidth;
-        const scrollWidth = scrollContainer.scrollWidth;
+        const contentWrapper = document.createElement('div');
+        contentWrapper.className = 'content-wrapper';
         
-        if (scrollWidth <= containerWidth) return;
-        
-        const slide = slides[index];
-        const slideLeft = slide.offsetLeft;
-        const slideWidth = slide.offsetWidth;
-        const targetScroll = slideLeft - (containerWidth / 2) + (slideWidth / 2);
-        const maxScroll = scrollWidth - containerWidth;
-        const scrollTo = Math.max(0, Math.min(targetScroll, maxScroll));
-
-        scrollContainer.scrollTo({
-            left: scrollTo,
-            behavior: "smooth"
+        paragraphs.forEach(p => {
+            contentWrapper.appendChild(p);
         });
-    }
-    
-
-    function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
-        }
-        activateSlide(currentSlide);
-        scrollToSlide(currentSlide);
-    }
-
-    resetAllSlides();
-    activateSlide(0);
-    scrollToSlide(0);
-    currentSlide = 0;
-
-    setInterval(nextSlide, 3000);
-}
-    function switchAuthTab(tab) {
-    const tabs = document.querySelectorAll('.auth-tab');
-    const forms = document.querySelectorAll('.auth-form');
-    
-    tabs.forEach(t => t.classList.remove('active'));
-    forms.forEach(f => f.classList.remove('active'));
-    
-    if (tab === 'login') {
-        tabs[0].classList.add('active');
-        document.getElementById('loginForm').classList.add('active');
-    } else {
-        tabs[1].classList.add('active');
-        document.getElementById('registerForm').classList.add('active');
-    }
-}
-
-const loginForm = document.getElementById('loginForm');
-if (loginForm) {
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('loginUsername').value.trim();
-        if (!username) return;
-        localStorage.setItem("ff_user", username);
-        closeAuthModal();
-        updateAuthUI();
-        loginForm.reset();
-    });
-}
-
-const regForm = document.getElementById('registerForm');
-if (regForm) {
-    const passwordInput = document.getElementById('regPassword');
-    const strengthBar = document.getElementById('strengthBar');
-    const passwordHint = document.getElementById('passwordHint');
-    const submitBtn = document.getElementById('regSubmitBtn');
-
-    function checkPasswordStrength(password) {
-        let score = 0;
-        if (password.length >= 6) score++;
-        if (password.length >= 10) score++;
-        if (/[A-ZА-ЯЁ]/.test(password)) score++;
-        if (/[0-9]/.test(password)) score++;
-        if (/[^A-Za-zА-Яа-яЁё0-9]/.test(password)) score++;
-        return score;
-    }
-
-    function updateStrengthIndicator(score) {
-        const colors = ['#e63946', '#e67e22', '#f1c40f', '#2ecc71', '#27ae60', '#27ae60'];
-        const labels = [
-            'Очень слабый пароль',
-            'Слабый пароль',
-            'Средний пароль',
-            'Хороший пароль',
-            'Надёжный пароль',
-            'Отличный пароль'
-        ];
-        const widths = ['20%', '40%', '60%', '80%', '100%', '100%'];
-
-        strengthBar.style.width = widths[score];
-        strengthBar.style.background = colors[score];
-        passwordHint.textContent = labels[score];
-        passwordHint.style.color = colors[score];
-    }
-
-    passwordInput.addEventListener('input', function() {
-        const password = passwordInput.value;
-        const score = checkPasswordStrength(password);
-        updateStrengthIndicator(score);
         
-        if (score < 3) {
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.5';
-            submitBtn.style.cursor = 'not-allowed';
-        } else {
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
-        }
+        block.appendChild(contentWrapper);
+        
+        const expandHint = document.createElement('div');
+        expandHint.className = 'expand-hint';
+        expandHint.textContent = 'Нажмите, чтобы развернуть';
+        block.appendChild(expandHint);
+        
+        const collapseHint = document.createElement('div');
+        collapseHint.className = 'collapse-hint';
+        collapseHint.textContent = 'Нажмите, чтобы свернуть';
+        block.appendChild(collapseHint);
+        
+        block.addEventListener('click', function() {
+            block.classList.toggle('expanded');
+        });
     });
 
-    regForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const password = passwordInput.value;
-        const score = checkPasswordStrength(password);
-        
-        if (score < 3) {
-            passwordHint.textContent = 'Пароль слишком слабый';
-            passwordHint.style.color = '#e63946';
-            return;
+    const slides = document.querySelectorAll(".gameplay-scroll .slide");
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        const scrollContainer = document.querySelector(".gameplay-scroll");
+
+        function resetAllSlides() {
+            slides.forEach(slide => {
+                slide.classList.remove("active");
+                slide.style.opacity = "0.6";
+                slide.style.transform = "scale(1)";
+                slide.style.boxShadow = "0 5px 18px rgba(0,0,0,0.45)";
+                slide.style.border = "2px solid transparent";
+                slide.style.zIndex = "1";
+                slide.style.transition = "all 0.5s ease";
+            });
         }
 
-        const username = document.getElementById('regUsername').value.trim();
-        const email = document.getElementById('regEmail').value.trim();
-        if (!username) return;
-        
-        localStorage.setItem("ff_user", username);
-        localStorage.setItem("ff_email", email);
-        if (!localStorage.getItem("ff_reg_date")) {
-            localStorage.setItem("ff_reg_date", new Date().toLocaleDateString());
+        function activateSlide(index) {
+            if (!slides[index]) return;
+            
+            resetAllSlides();
+            
+            slides[index].classList.add("active");
+            slides[index].style.opacity = "1";
+            slides[index].style.transform = "scale(1.05)";
+            slides[index].style.boxShadow = "0 0 25px rgba(16, 110, 82, 0.7)";
+            slides[index].style.border = "2px solid rgba(16, 110, 82, 0.8)";
+            slides[index].style.zIndex = "2";
         }
-        
-        closeAuthModal();
-        updateAuthUI();
-        regForm.reset();
-        strengthBar.style.width = '0%';
-        passwordHint.textContent = '';
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
-    });
-}
+
+        function scrollToSlide(index) {
+            if (!scrollContainer || !slides[index]) return;
+            
+            const containerWidth = scrollContainer.offsetWidth;
+            const scrollWidth = scrollContainer.scrollWidth;
+            
+            if (scrollWidth <= containerWidth) return;
+            
+            const slide = slides[index];
+            const slideLeft = slide.offsetLeft;
+            const slideWidth = slide.offsetWidth;
+            const targetScroll = slideLeft - (containerWidth / 2) + (slideWidth / 2);
+            const maxScroll = scrollWidth - containerWidth;
+            const scrollTo = Math.max(0, Math.min(targetScroll, maxScroll));
+
+            scrollContainer.scrollTo({
+                left: scrollTo,
+                behavior: "smooth"
+            });
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            activateSlide(currentSlide);
+            scrollToSlide(currentSlide);
+        }
+
+        resetAllSlides();
+        activateSlide(0);
+        scrollToSlide(0);
+        currentSlide = 0;
+
+        setInterval(nextSlide, 3000);
+    }
 });
