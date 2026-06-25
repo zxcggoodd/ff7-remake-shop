@@ -416,6 +416,96 @@ document.addEventListener("DOMContentLoaded", function () {
         if (profileDateEl) profileDateEl.textContent = "Дата регистрации: " + regDate;
         renderOrders();
     }
+    const regForm = document.getElementById('registerForm');
+
+if (regForm) {
+    const passwordInput = document.getElementById('regPassword');
+    const strengthBar = document.getElementById('strengthBar');
+    const passwordHint = document.getElementById('passwordHint');
+    const submitBtn = document.getElementById('regSubmitBtn');
+
+    function checkPasswordStrength(password) {
+        let score = 0;
+        
+        if (password.length >= 6) score++;
+        if (password.length >= 10) score++;
+        if (/[A-ZА-ЯЁ]/.test(password)) score++;
+        if (/[0-9]/.test(password)) score++;
+        if (/[^A-Za-zА-Яа-яЁё0-9]/.test(password)) score++;
+
+        return score;
+    }
+
+    function updateStrengthIndicator(score) {
+        const colors = ['#e63946', '#e67e22', '#f1c40f', '#2ecc71', '#27ae60', '#27ae60'];
+        const labels = [
+            'Очень слабый пароль',
+            'Слабый пароль',
+            'Средний пароль',
+            'Хороший пароль',
+            'Надёжный пароль',
+            'Отличный пароль'
+        ];
+        const widths = ['20%', '40%', '60%', '80%', '100%', '100%'];
+
+        strengthBar.style.width = widths[score];
+        strengthBar.style.background = colors[score];
+        passwordHint.textContent = labels[score];
+        passwordHint.style.color = colors[score];
+    }
+
+    passwordInput.addEventListener('input', function() {
+        const password = passwordInput.value;
+        const score = checkPasswordStrength(password);
+        
+        updateStrengthIndicator(score);
+        
+        if (score < 3) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+            submitBtn.style.cursor = 'not-allowed';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+        }
+    });
+
+    regForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const password = passwordInput.value;
+        const score = checkPasswordStrength(password);
+        
+        if (score < 3) {
+            passwordHint.textContent = 'Пароль слишком слабый. Добавьте цифры, заглавные буквы и символы';
+            passwordHint.style.color = '#e63946';
+            return;
+        }
+
+        const username = document.getElementById('regUsername').value.trim();
+        const email = document.getElementById('regEmail').value.trim();
+        
+        if (!username) return;
+        
+        localStorage.setItem("ff_user", username);
+        localStorage.setItem("ff_email", email);
+        
+        if (!localStorage.getItem("ff_reg_date")) {
+            localStorage.setItem("ff_reg_date", new Date().toLocaleDateString());
+        }
+        
+        closeAuthModal();
+        updateAuthUI();
+        
+        regForm.reset();
+        strengthBar.style.width = '0%';
+        passwordHint.textContent = '';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+    });
+}
 const slides = document.querySelectorAll(".gameplay-scroll .slide");
 
 if (slides.length > 0) {
