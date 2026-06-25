@@ -421,6 +421,7 @@ document.addEventListener("DOMContentLoaded", function () {
 if (slides.length > 0) {
     let currentSlide = 0;
     const scrollContainer = document.querySelector(".gameplay-scroll");
+    let intervalId = null;
 
     function resetAllSlides() {
         slides.forEach(slide => {
@@ -449,11 +450,15 @@ if (slides.length > 0) {
 
     function scrollToSlide(index) {
         if (!scrollContainer || !slides[index]) return;
-
-        const slideLeft = slides[index].offsetLeft;
-        const slideWidth = slides[index].offsetWidth;
+        
+        const slide = slides[index];
         const containerWidth = scrollContainer.offsetWidth;
         const scrollWidth = scrollContainer.scrollWidth;
+        
+        if (scrollWidth <= containerWidth) return;
+        
+        const slideLeft = slide.offsetLeft;
+        const slideWidth = slide.offsetWidth;
         
         let scrollTo;
         if (index === 0) {
@@ -481,9 +486,13 @@ if (slides.length > 0) {
         scrollToSlide(currentSlide);
     }
 
+    if (intervalId) clearInterval(intervalId);
+    
+    resetAllSlides();
     activateSlide(0);
     scrollToSlide(0);
+    currentSlide = 0;
 
-    setInterval(nextSlide, 3000);
+    intervalId = setInterval(nextSlide, 3000);
 }
 });
