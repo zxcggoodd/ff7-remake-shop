@@ -400,19 +400,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const slides = document.querySelectorAll(".slide");
-    if (slides.length > 0) {
-        let current = 0;
-        setInterval(() => {
-            slides[current].classList.remove("active");
-            current++;
-            if (current >= slides.length) {
-                current = 0;
-            }
-            slides[current].classList.add("active");
-        }, 3500);
-    }
-
     const profileName = document.getElementById("profile-name");
     if (profileName) {
         const user = localStorage.getItem("ff_user");
