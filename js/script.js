@@ -519,38 +519,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-        regForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = passwordInput.value;
-            const score = checkPasswordStrength(password);
-            
-            if (score < 3) {
-                passwordHint.textContent = 'Пароль слишком слабый';
-                passwordHint.style.color = '#e63946';
-                return;
-            }
-
-            const username = document.getElementById('regUsername').value.trim();
-            const email = document.getElementById('regEmail').value.trim();
-            if (!username) return;
-            
-            localStorage.setItem("ff_user", username);
-            localStorage.setItem("ff_email", email);
-            if (!localStorage.getItem("ff_reg_date")) {
-                localStorage.setItem("ff_reg_date", new Date().toLocaleDateString());
-            }
-            
-            closeAuthModal();
-            updateAuthUI();
-            regForm.reset();
-            strengthBar.style.width = '0%';
-            passwordHint.textContent = '';
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
-        });
-    }
-
     const profileName = document.getElementById("profile-name");
     if (profileName) {
         const user = localStorage.getItem("ff_user");
