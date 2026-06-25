@@ -1080,4 +1080,19 @@ footer {
     .cookie-text {
         flex: 1 1 auto;
     }
+    .gameplay-scroll .slide {
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.6;
+    transform: scale(1);
+}
+
+.gameplay-scroll .slide.active {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(16, 110, 82, 0.7);
+    border: 2px solid rgba(16, 110, 82, 0.8);
+    z-index: 2;
+}
 }
