@@ -1140,6 +1140,7 @@ footer {
     .cookie-text {
         flex: 1 1 auto;
     }
+
 .gameplay-scroll .slide {
     opacity: 0.6;
     transform: scale(1);
@@ -1159,7 +1160,8 @@ footer {
     border: 2px solid rgba(16, 110, 82, 0.8) !important;
     z-index: 2 !important;
 }
-    .password-field {
+
+.password-field {
     position: relative;
     width: 100%;
     margin-bottom: 15px;
@@ -1195,5 +1197,44 @@ footer {
     color: #aaa;
     min-height: 18px;
     transition: color 0.3s ease;
+}
+
+/* Стили для вкладок */
+.auth-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.auth-tab.active {
+    background: #106e52;
+    color: white;
+}
+
+.auth-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
 }
 }
