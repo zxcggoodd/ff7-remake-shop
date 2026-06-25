@@ -450,17 +450,16 @@ if (slides.length > 0) {
     function scrollToSlide(index) {
         if (!scrollContainer || !slides[index]) return;
         
-        const slide = slides[index];
         const containerWidth = scrollContainer.offsetWidth;
         const scrollWidth = scrollContainer.scrollWidth;
         
         if (scrollWidth <= containerWidth) return;
         
+        const slide = slides[index];
         const slideLeft = slide.offsetLeft;
         const slideWidth = slide.offsetWidth;
         const targetScroll = slideLeft - (containerWidth / 2) + (slideWidth / 2);
         const maxScroll = scrollWidth - containerWidth;
-        
         const scrollTo = Math.max(0, Math.min(targetScroll, maxScroll));
 
         scrollContainer.scrollTo({
