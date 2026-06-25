@@ -1159,4 +1159,41 @@ footer {
     border: 2px solid rgba(16, 110, 82, 0.8) !important;
     z-index: 2 !important;
 }
+    .password-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.password-field input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.password-strength {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+}
+
+.password-hint {
+    display: block;
+    font-size: 0.8em;
+    color: #aaa;
+    min-height: 18px;
+    transition: color 0.3s ease;
+}
 }
