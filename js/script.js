@@ -416,12 +416,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (profileDateEl) profileDateEl.textContent = "Дата регистрации: " + regDate;
         renderOrders();
     }
-  const slides = document.querySelectorAll(".gameplay-scroll .slide");
+ const slides = document.querySelectorAll(".gameplay-scroll .slide");
 
 if (slides.length > 0) {
     let currentSlide = 0;
     const scrollContainer = document.querySelector(".gameplay-scroll");
-    let intervalId = null;
 
     function resetAllSlides() {
         slides.forEach(slide => {
@@ -436,6 +435,8 @@ if (slides.length > 0) {
     }
 
     function activateSlide(index) {
+        if (!slides[index]) return;
+        
         resetAllSlides();
         
         slides[index].classList.add("active");
@@ -444,58 +445,45 @@ if (slides.length > 0) {
         slides[index].style.boxShadow = "0 0 25px rgba(16, 110, 82, 0.7)";
         slides[index].style.border = "2px solid rgba(16, 110, 82, 0.8)";
         slides[index].style.zIndex = "2";
-
-        if (scrollContainer && slides[index]) {
-            const slideLeft = slides[index].offsetLeft;
-            const slideWidth = slides[index].offsetWidth;
-            const containerWidth = scrollContainer.offsetWidth;
-            
-            let scrollTo;
-            if (index === 0) {
-                scrollTo = 0;
-            } else if (index === slides.length - 1) {
-                scrollTo = scrollContainer.scrollWidth - containerWidth;
-            } else {
-                scrollTo = slideLeft - (containerWidth / 2) + (slideWidth / 2);
-            }
-
-            scrollContainer.scrollTo({
-                left: Math.max(0, Math.min(scrollTo, scrollContainer.scrollWidth - containerWidth)),
-                behavior: "smooth"
-            });
-        }
     }
 
-    function startSlideshow() {
-        if (intervalId) clearInterval(intervalId);
+    function scrollToSlide(index) {
+        if (!scrollContainer || !slides[index]) return;
+
+        const slideLeft = slides[index].offsetLeft;
+        const slideWidth = slides[index].offsetWidth;
+        const containerWidth = scrollContainer.offsetWidth;
+        const scrollWidth = scrollContainer.scrollWidth;
         
-        activateSlide(0);
-        currentSlide = 0;
+        let scrollTo;
+        if (index === 0) {
+            scrollTo = 0;
+        } else if (index === slides.length - 1) {
+            scrollTo = scrollWidth - containerWidth;
+        } else {
+            scrollTo = slideLeft - (containerWidth / 2) + (slideWidth / 2);
+        }
 
-        intervalId = setInterval(() => {
-            currentSlide++;
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            }
-            activateSlide(currentSlide);
-        }, 3000);
+        scrollTo = Math.max(0, Math.min(scrollTo, scrollWidth - containerWidth));
+
+        scrollContainer.scrollTo({
+            left: scrollTo,
+            behavior: "smooth"
+        });
     }
 
-    startSlideshow();
-
-    if (scrollContainer) {
-        scrollContainer.addEventListener('scroll', () => {
-            if (intervalId) {
-                clearInterval(intervalId);
-                intervalId = setInterval(() => {
-                    currentSlide++;
-                    if (currentSlide >= slides.length) {
-                        currentSlide = 0;
-                    }
-                    activateSlide(currentSlide);
-                }, 3000);
-            }
-        }, { passive: true });
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        activateSlide(currentSlide);
+        scrollToSlide(currentSlide);
     }
+
+    activateSlide(0);
+    scrollToSlide(0);
+
+    setInterval(nextSlide, 3000);
 }
 });
