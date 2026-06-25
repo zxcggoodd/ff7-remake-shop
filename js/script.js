@@ -416,11 +416,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (profileDateEl) profileDateEl.textContent = "Дата регистрации: " + regDate;
         renderOrders();
     }
-      const slides = document.querySelectorAll(".gameplay-scroll .slide");
+  const slides = document.querySelectorAll(".gameplay-scroll .slide");
 
 if (slides.length > 0) {
     let currentSlide = 0;
     const scrollContainer = document.querySelector(".gameplay-scroll");
+    let isAnimating = false;
 
     function resetAllSlides() {
         slides.forEach(slide => {
@@ -430,10 +431,14 @@ if (slides.length > 0) {
             slide.style.boxShadow = "0 5px 18px rgba(0,0,0,0.45)";
             slide.style.border = "2px solid transparent";
             slide.style.zIndex = "1";
+            slide.style.transition = "all 0.6s ease";
         });
     }
 
     function activateSlide(index) {
+        if (isAnimating) return;
+        isAnimating = true;
+
         resetAllSlides();
         
         slides[index].classList.add("active");
@@ -454,6 +459,10 @@ if (slides.length > 0) {
                 behavior: "smooth"
             });
         }
+
+        setTimeout(() => {
+            isAnimating = false;
+        }, 600);
     }
 
     activateSlide(0);
@@ -462,8 +471,18 @@ if (slides.length > 0) {
         currentSlide++;
         if (currentSlide >= slides.length) {
             currentSlide = 0;
+            if (scrollContainer) {
+                scrollContainer.scrollTo({
+                    left: 0,
+                    behavior: "smooth"
+                });
+            }
+            setTimeout(() => {
+                activateSlide(0);
+            }, 400);
+        } else {
+            activateSlide(currentSlide);
         }
-        activateSlide(currentSlide);
     }, 3000);
 }
 });
