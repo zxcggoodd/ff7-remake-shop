@@ -1080,19 +1080,23 @@ footer {
     .cookie-text {
         flex: 1 1 auto;
     }
-    .gameplay-scroll .slide {
+.gameplay-scroll .slide {
+    opacity: 0.6;
+    transform: scale(1);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.45);
+    border: 2px solid transparent;
+    z-index: 1;
     transition: all 0.5s ease;
     cursor: pointer;
     position: relative;
-    opacity: 0.6;
-    transform: scale(1);
+    flex-shrink: 0;
 }
 
 .gameplay-scroll .slide.active {
-    opacity: 1;
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(16, 110, 82, 0.7);
-    border: 2px solid rgba(16, 110, 82, 0.8);
-    z-index: 2;
+    opacity: 1 !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 25px rgba(16, 110, 82, 0.7) !important;
+    border: 2px solid rgba(16, 110, 82, 0.8) !important;
+    z-index: 2 !important;
 }
 }
