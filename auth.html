@@ -1,10 +1,17 @@
-﻿<section class="auth">
+<section class="auth">
     <h2>Регистрация</h2>
-
-    <form class="auth-form">
-        <input type="text" placeholder="Имя пользователя" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Пароль" required>
-        <button type="submit">Зарегистрироваться</button>
+    <form class="auth-form" id="registerForm">
+        <input type="text" id="regUsername" placeholder="Имя пользователя" required>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        
+        <div class="password-field">
+            <input type="password" id="regPassword" placeholder="Пароль" required>
+            <div class="password-strength">
+                <div class="strength-bar" id="strengthBar"></div>
+            </div>
+            <span class="password-hint" id="passwordHint"></span>
+        </div>
+        
+        <button type="submit" id="regSubmitBtn">Зарегистрироваться</button>
     </form>
 </section>
