@@ -88,7 +88,17 @@ main {
     margin-right: auto;
     font-size: 1.25em;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
+.game-description:hover, .game-plot:hover {
+    background: rgba(42, 42, 42, 0.8);
+    border: 1px solid rgba(16, 110, 82, 0.5);
+    box-shadow: 0 6px 25px rgba(16, 110, 82, 0.3);
+}
+
 
 
 .game-description h2, .game-plot h2 {
@@ -97,10 +107,60 @@ main {
     margin-bottom: 15px;
     font-size: 2.3em;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+.game-description h2::after, .game-plot h2::after {
+    content: "▼";
+    font-size: 0.5em;
+    transition: transform 0.4s ease;
+    margin-left: 15px;
 }
 .game-description p, .game-plot p {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     line-height: 1.8;
+}
+.game-description.expanded h2::after, .game-plot.expanded h2::after {
+    transform: rotate(180deg);
+}
+
+.game-description .content-wrapper, .game-plot .content-wrapper {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+}
+
+.game-description.expanded .content-wrapper, .game-plot.expanded .content-wrapper {
+    max-height: 2000px;
+}
+
+.game-description .expand-hint, .game-plot .expand-hint {
+    text-align: center;
+    color: rgba(16, 110, 82, 0.8);
+    font-size: 0.8em;
+    margin-top: 15px;
+    font-style: italic;
+    user-select: none;
+}
+
+.game-description .collapse-hint, .game-plot .collapse-hint {
+    display: none;
+    text-align: center;
+    color: rgba(16, 110, 82, 0.8);
+    font-size: 0.8em;
+    margin-top: 15px;
+    font-style: italic;
+    user-select: none;
+}
+
+.game-description.expanded .expand-hint, .game-plot.expanded .expand-hint {
+    display: none;
+}
+
+.game-description.expanded .collapse-hint, .game-plot.expanded .collapse-hint {
+    display: block;
 }
 
 @media (max-width: 768px) {
