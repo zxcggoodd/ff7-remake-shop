@@ -416,12 +416,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (profileDateEl) profileDateEl.textContent = "Дата регистрации: " + regDate;
         renderOrders();
     }
- const slides = document.querySelectorAll(".gameplay-scroll .slide");
+const slides = document.querySelectorAll(".gameplay-scroll .slide");
 
 if (slides.length > 0) {
     let currentSlide = 0;
     const scrollContainer = document.querySelector(".gameplay-scroll");
-    let intervalId = null;
 
     function resetAllSlides() {
         slides.forEach(slide => {
@@ -459,17 +458,10 @@ if (slides.length > 0) {
         
         const slideLeft = slide.offsetLeft;
         const slideWidth = slide.offsetWidth;
+        const targetScroll = slideLeft - (containerWidth / 2) + (slideWidth / 2);
+        const maxScroll = scrollWidth - containerWidth;
         
-        let scrollTo;
-        if (index === 0) {
-            scrollTo = 0;
-        } else if (index === slides.length - 1) {
-            scrollTo = scrollWidth - containerWidth;
-        } else {
-            scrollTo = slideLeft - (containerWidth / 2) + (slideWidth / 2);
-        }
-
-        scrollTo = Math.max(0, Math.min(scrollTo, scrollWidth - containerWidth));
+        const scrollTo = Math.max(0, Math.min(targetScroll, maxScroll));
 
         scrollContainer.scrollTo({
             left: scrollTo,
@@ -486,13 +478,11 @@ if (slides.length > 0) {
         scrollToSlide(currentSlide);
     }
 
-    if (intervalId) clearInterval(intervalId);
-    
     resetAllSlides();
     activateSlide(0);
     scrollToSlide(0);
     currentSlide = 0;
 
-    intervalId = setInterval(nextSlide, 3000);
+    setInterval(nextSlide, 3000);
 }
 });
