@@ -421,7 +421,7 @@ document.addEventListener("DOMContentLoaded", function () {
 if (slides.length > 0) {
     let currentSlide = 0;
     const scrollContainer = document.querySelector(".gameplay-scroll");
-    let isAnimating = false;
+    let intervalId = null;
 
     function resetAllSlides() {
         slides.forEach(slide => {
@@ -431,14 +431,11 @@ if (slides.length > 0) {
             slide.style.boxShadow = "0 5px 18px rgba(0,0,0,0.45)";
             slide.style.border = "2px solid transparent";
             slide.style.zIndex = "1";
-            slide.style.transition = "all 0.6s ease";
+            slide.style.transition = "all 0.5s ease";
         });
     }
 
     function activateSlide(index) {
-        if (isAnimating) return;
-        isAnimating = true;
-
         resetAllSlides();
         
         slides[index].classList.add("active");
@@ -448,41 +445,57 @@ if (slides.length > 0) {
         slides[index].style.border = "2px solid rgba(16, 110, 82, 0.8)";
         slides[index].style.zIndex = "2";
 
-        if (scrollContainer) {
+        if (scrollContainer && slides[index]) {
             const slideLeft = slides[index].offsetLeft;
-            const containerWidth = scrollContainer.offsetWidth;
             const slideWidth = slides[index].offsetWidth;
-            const scrollTo = slideLeft - (containerWidth / 2) + (slideWidth / 2);
+            const containerWidth = scrollContainer.offsetWidth;
+            
+            let scrollTo;
+            if (index === 0) {
+                scrollTo = 0;
+            } else if (index === slides.length - 1) {
+                scrollTo = scrollContainer.scrollWidth - containerWidth;
+            } else {
+                scrollTo = slideLeft - (containerWidth / 2) + (slideWidth / 2);
+            }
 
             scrollContainer.scrollTo({
-                left: Math.max(0, scrollTo),
+                left: Math.max(0, Math.min(scrollTo, scrollContainer.scrollWidth - containerWidth)),
                 behavior: "smooth"
             });
         }
-
-        setTimeout(() => {
-            isAnimating = false;
-        }, 600);
     }
 
-    activateSlide(0);
+    function startSlideshow() {
+        if (intervalId) clearInterval(intervalId);
+        
+        activateSlide(0);
+        currentSlide = 0;
 
-    setInterval(() => {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
-            if (scrollContainer) {
-                scrollContainer.scrollTo({
-                    left: 0,
-                    behavior: "smooth"
-                });
+        intervalId = setInterval(() => {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
             }
-            setTimeout(() => {
-                activateSlide(0);
-            }, 400);
-        } else {
             activateSlide(currentSlide);
-        }
-    }, 3000);
+        }, 3000);
+    }
+
+    startSlideshow();
+
+    if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = setInterval(() => {
+                    currentSlide++;
+                    if (currentSlide >= slides.length) {
+                        currentSlide = 0;
+                    }
+                    activateSlide(currentSlide);
+                }, 3000);
+            }
+        }, { passive: true });
+    }
 }
 });
