@@ -93,13 +93,12 @@ main {
     overflow: hidden;
     transition: all 0.4s ease;
 }
+
 .game-description:hover, .game-plot:hover {
     background: rgba(42, 42, 42, 0.8);
     border: 1px solid rgba(16, 110, 82, 0.5);
     box-shadow: 0 6px 25px rgba(16, 110, 82, 0.3);
 }
-
-
 
 .game-description h2, .game-plot h2 {
     font-family: "Cinzel", serif;
@@ -112,16 +111,19 @@ main {
     align-items: center;
     user-select: none;
 }
+
 .game-description h2::after, .game-plot h2::after {
     content: "▼";
     font-size: 0.5em;
     transition: transform 0.4s ease;
     margin-left: 15px;
 }
+
 .game-description p, .game-plot p {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     line-height: 1.8;
 }
+
 .game-description.expanded h2::after, .game-plot.expanded h2::after {
     transform: rotate(180deg);
 }
@@ -161,16 +163,6 @@ main {
 
 .game-description.expanded .collapse-hint, .game-plot.expanded .collapse-hint {
     display: block;
-}
-
-@media (max-width: 768px) {
-    body {
-        background-attachment: scroll;
-    }
-    
-    .game-description, .game-plot {
-        padding: 20px;
-    }
 }
 
 .character-gallery {
@@ -611,6 +603,26 @@ footer {
 
 .gameplay-scroll img:hover {
     transform: scale(1.03);
+}
+
+.gameplay-scroll .slide {
+    opacity: 0.6;
+    transform: scale(1);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.45);
+    border: 2px solid transparent;
+    z-index: 1;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.gameplay-scroll .slide.active {
+    opacity: 1 !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 25px rgba(16, 110, 82, 0.7) !important;
+    border: 2px solid rgba(16, 110, 82, 0.8) !important;
+    z-index: 2 !important;
 }
 
 .gameplay-modal {
@@ -1119,48 +1131,6 @@ footer {
     justify-content: flex-end;
 }
 
-@media (max-width: 768px) {
-    .character-icons {
-        flex-direction: column;
-    }
-
-    .game-description, .game-plot {
-        padding: 10px;
-    }
-
-    .cookie-consent-content {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .cookie-actions {
-        justify-content: center;
-    }
-
-    .cookie-text {
-        flex: 1 1 auto;
-    }
-
-.gameplay-scroll .slide {
-    opacity: 0.6;
-    transform: scale(1);
-    box-shadow: 0 5px 18px rgba(0,0,0,0.45);
-    border: 2px solid transparent;
-    z-index: 1;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.gameplay-scroll .slide.active {
-    opacity: 1 !important;
-    transform: scale(1.05) !important;
-    box-shadow: 0 0 25px rgba(16, 110, 82, 0.7) !important;
-    border: 2px solid rgba(16, 110, 82, 0.8) !important;
-    z-index: 2 !important;
-}
-
 .password-field {
     position: relative;
     width: 100%;
@@ -1199,7 +1169,6 @@ footer {
     transition: color 0.3s ease;
 }
 
-/* Стили для вкладок */
 .auth-tabs {
     display: flex;
     gap: 0;
@@ -1237,4 +1206,30 @@ footer {
 .auth-form.active {
     display: block;
 }
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+    
+    .character-icons {
+        flex-direction: column;
+    }
+
+    .game-description, .game-plot {
+        padding: 10px;
+    }
+
+    .cookie-consent-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cookie-actions {
+        justify-content: center;
+    }
+
+    .cookie-text {
+        flex: 1 1 auto;
+    }
 }
