@@ -73,22 +73,44 @@ main {
     font-family: "Cinzel", serif;
     margin-bottom: 40px;
     text-align: justify;
-    padding: 20px 35px;
-    background: #2a2a2a;
+    padding: 30px 40px;
+    background: linear-gradient(rgba(30, 30, 30, 0.75), rgba(30, 30, 30, 0.75)), url('../images/photoboss.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     width: 100%;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.25em;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(1px);
 }
+
 
 .game-description h2, .game-plot h2 {
     font-family: "Cinzel", serif;
     color: #fff;
     margin-bottom: 15px;
     font-size: 2.3em;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 2;
+}
+.game-description p, .game-plot p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 768px) {
+    .game-description, .game-plot {
+        padding: 20px;
+        background-attachment: scroll;
+    }
 }
 
 .character-gallery {
