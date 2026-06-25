@@ -447,6 +447,35 @@ if (slides.length > 0) {
         slides[index].style.zIndex = "2";
     }
 
+    const descriptionBlocks = document.querySelectorAll('.game-description, .game-plot');
+
+descriptionBlocks.forEach(block => {
+    const heading = block.querySelector('h2');
+    const paragraphs = block.querySelectorAll('p');
+    
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = 'content-wrapper';
+    
+    paragraphs.forEach(p => {
+        contentWrapper.appendChild(p);
+    });
+    
+    block.appendChild(contentWrapper);
+    
+    const expandHint = document.createElement('div');
+    expandHint.className = 'expand-hint';
+    expandHint.textContent = 'Нажмите, чтобы развернуть';
+    block.appendChild(expandHint);
+    
+    const collapseHint = document.createElement('div');
+    collapseHint.className = 'collapse-hint';
+    collapseHint.textContent = 'Нажмите, чтобы свернуть';
+    block.appendChild(collapseHint);
+    
+    block.addEventListener('click', function() {
+        block.classList.toggle('expanded');
+    });
+});
     function scrollToSlide(index) {
         if (!scrollContainer || !slides[index]) return;
         
