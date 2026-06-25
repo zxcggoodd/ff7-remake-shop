@@ -411,7 +411,22 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            
             if (!username) return;
+            
+            const savedPassword = localStorage.getItem("ff_password");
+            
+            if (savedPassword && password !== savedPassword) {
+                alert("Неверный пароль!");
+                return;
+            }
+            
+            if (!savedPassword) {
+                alert("Пользователь не найден. Зарегистрируйтесь.");
+                return;
+            }
+            
             localStorage.setItem("ff_user", username);
             closeAuthModal();
             updateAuthUI();
@@ -469,6 +484,40 @@ document.addEventListener("DOMContentLoaded", function () {
                 submitBtn.style.cursor = 'pointer';
             }
         });
+
+        regForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = passwordInput.value;
+            const score = checkPasswordStrength(password);
+            
+            if (score < 3) {
+                passwordHint.textContent = 'Пароль слишком слабый';
+                passwordHint.style.color = '#e63946';
+                return;
+            }
+
+            const username = document.getElementById('regUsername').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            if (!username) return;
+            
+            localStorage.setItem("ff_user", username);
+            localStorage.setItem("ff_email", email);
+            localStorage.setItem("ff_password", password);
+            
+            if (!localStorage.getItem("ff_reg_date")) {
+                localStorage.setItem("ff_reg_date", new Date().toLocaleDateString());
+            }
+            
+            closeAuthModal();
+            updateAuthUI();
+            regForm.reset();
+            strengthBar.style.width = '0%';
+            passwordHint.textContent = '';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+        });
+    }
 
         regForm.addEventListener('submit', function(e) {
             e.preventDefault();
